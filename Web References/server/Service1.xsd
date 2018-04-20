@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58818/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Blogging" />
+  <xs:element name="GetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="composite" nillable="true" type="q1:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cpwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s_ques" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ans" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gnder" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cpwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s_ques" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ans" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ResetPasswordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadBlog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="writing" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadBlogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadBlogResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditBlog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="titl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="write" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditBlogResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Access">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nme" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AccessResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Reset">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nme" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="ncode" type="xs:int" />
+        <xs:element minOccurs="0" name="con_code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ResetResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
