@@ -16,7 +16,25 @@ namespace Blogging
         [OperationContract]
         string GetData(int value);
 
-               // TODO: Add your service operations here
+        [OperationContract]
+        CompositeType GetDataUsingDataContract(CompositeType composite);
+
+        [OperationContract]
+        bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder);
+        [OperationContract]
+        void Logout();
+
+        [OperationContract]
+        bool Login(string user, string pwd);
+        [OperationContract]
+        bool ResetPassword(string user, string pwd, string cpwd, string s_ques, string ans);
+        [OperationContract]
+        void Delete();
+        [OperationContract]
+        bool UploadBlog(string name, string type, string writing);
+        [OperationContract]
+        void EditBlog(string titl, string write);
+        // TODO: Add your service operations here
     }
 
 
