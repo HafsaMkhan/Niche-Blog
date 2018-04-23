@@ -37,6 +37,8 @@ namespace Niche_Blog.server {
         
         private System.Threading.SendOrPostCallback LogoutOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Show_UsernameOperationCompleted;
+        
         private System.Threading.SendOrPostCallback LoginOperationCompleted;
         
         private System.Threading.SendOrPostCallback ResetPasswordOperationCompleted;
@@ -100,6 +102,9 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         public event LogoutCompletedEventHandler LogoutCompleted;
+        
+        /// <remarks/>
+        public event Show_UsernameCompletedEventHandler Show_UsernameCompleted;
         
         /// <remarks/>
         public event LoginCompletedEventHandler LoginCompleted;
@@ -247,6 +252,34 @@ namespace Niche_Blog.server {
             if ((this.LogoutCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.LogoutCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/Show_Username", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Show_Username() {
+            object[] results = this.Invoke("Show_Username", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Show_UsernameAsync() {
+            this.Show_UsernameAsync(null);
+        }
+        
+        /// <remarks/>
+        public void Show_UsernameAsync(object userState) {
+            if ((this.Show_UsernameOperationCompleted == null)) {
+                this.Show_UsernameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnShow_UsernameOperationCompleted);
+            }
+            this.InvokeAsync("Show_Username", new object[0], this.Show_UsernameOperationCompleted, userState);
+        }
+        
+        private void OnShow_UsernameOperationCompleted(object arg) {
+            if ((this.Show_UsernameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Show_UsernameCompleted(this, new Show_UsernameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -412,29 +445,27 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/Access", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void Access([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string nme, int code, [System.Xml.Serialization.XmlIgnoreAttribute()] bool codeSpecified, out bool AccessResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool AccessResultSpecified) {
+        public void Access([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string nme, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string code, out bool AccessResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool AccessResultSpecified) {
             object[] results = this.Invoke("Access", new object[] {
                         nme,
-                        code,
-                        codeSpecified});
+                        code});
             AccessResult = ((bool)(results[0]));
             AccessResultSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
-        public void AccessAsync(string nme, int code, bool codeSpecified) {
-            this.AccessAsync(nme, code, codeSpecified, null);
+        public void AccessAsync(string nme, string code) {
+            this.AccessAsync(nme, code, null);
         }
         
         /// <remarks/>
-        public void AccessAsync(string nme, int code, bool codeSpecified, object userState) {
+        public void AccessAsync(string nme, string code, object userState) {
             if ((this.AccessOperationCompleted == null)) {
                 this.AccessOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAccessOperationCompleted);
             }
             this.InvokeAsync("Access", new object[] {
                         nme,
-                        code,
-                        codeSpecified}, this.AccessOperationCompleted, userState);
+                        code}, this.AccessOperationCompleted, userState);
         }
         
         private void OnAccessOperationCompleted(object arg) {
@@ -446,37 +477,31 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/Reset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void Reset([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string nme, int code, [System.Xml.Serialization.XmlIgnoreAttribute()] bool codeSpecified, int ncode, [System.Xml.Serialization.XmlIgnoreAttribute()] bool ncodeSpecified, int con_code, [System.Xml.Serialization.XmlIgnoreAttribute()] bool con_codeSpecified, out bool ResetResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool ResetResultSpecified) {
+        public void Reset([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string nme, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string code, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string ncode, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string con_code, out bool ResetResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool ResetResultSpecified) {
             object[] results = this.Invoke("Reset", new object[] {
                         nme,
                         code,
-                        codeSpecified,
                         ncode,
-                        ncodeSpecified,
-                        con_code,
-                        con_codeSpecified});
+                        con_code});
             ResetResult = ((bool)(results[0]));
             ResetResultSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
-        public void ResetAsync(string nme, int code, bool codeSpecified, int ncode, bool ncodeSpecified, int con_code, bool con_codeSpecified) {
-            this.ResetAsync(nme, code, codeSpecified, ncode, ncodeSpecified, con_code, con_codeSpecified, null);
+        public void ResetAsync(string nme, string code, string ncode, string con_code) {
+            this.ResetAsync(nme, code, ncode, con_code, null);
         }
         
         /// <remarks/>
-        public void ResetAsync(string nme, int code, bool codeSpecified, int ncode, bool ncodeSpecified, int con_code, bool con_codeSpecified, object userState) {
+        public void ResetAsync(string nme, string code, string ncode, string con_code, object userState) {
             if ((this.ResetOperationCompleted == null)) {
                 this.ResetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnResetOperationCompleted);
             }
             this.InvokeAsync("Reset", new object[] {
                         nme,
                         code,
-                        codeSpecified,
                         ncode,
-                        ncodeSpecified,
-                        con_code,
-                        con_codeSpecified}, this.ResetOperationCompleted, userState);
+                        con_code}, this.ResetOperationCompleted, userState);
         }
         
         private void OnResetOperationCompleted(object arg) {
@@ -641,6 +666,32 @@ namespace Niche_Blog.server {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
     public delegate void LogoutCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void Show_UsernameCompletedEventHandler(object sender, Show_UsernameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Show_UsernameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Show_UsernameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]

@@ -31,16 +31,15 @@ namespace Niche_Blog
 
         private void cmdAccess_Click(object sender, EventArgs e)
         {
-            bool valid=true;
             bool is_valid;
             bool validate;
             server.Service1 server = new server.Service1();
-            int i = int.Parse(txtAccess_Code.Text);
-
-            server.Access(txtAdmin_Titlle.Text, i, valid, out is_valid,out validate);
+            server.Access(txtAdmin_Titlle.Text, txtAccess_Code.Text, out is_valid, out validate);
             if(validate==true & is_valid == true)
             {
-                MessageBox.Show("Login Successful!");
+                this.Hide();
+                ResetAdmin ra = new ResetAdmin();
+                ra.Show();
             }
             else
             {
@@ -57,7 +56,15 @@ namespace Niche_Blog
 
         private void txtAccess_Code_TextChanged(object sender, EventArgs e)
         {
-            int i = int.Parse(txtAccess_Code.Text);
+            int value;
+            if (int.TryParse(txtAccess_Code.Text, out value))
+            {
+              
+            }
+            else
+            {
+                MessageBox.Show("Numeric inputs are valid only.");
+            }
         }
     }
 }

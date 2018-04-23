@@ -31,6 +31,12 @@
   <wsdl:message name="IService1_Logout_OutputMessage">
     <wsdl:part name="parameters" element="tns:LogoutResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Show_Username_InputMessage">
+    <wsdl:part name="parameters" element="tns:Show_Username" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Show_Username_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Show_UsernameResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
@@ -89,6 +95,10 @@
     <wsdl:operation name="Logout">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Logout" message="tns:IService1_Logout_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogoutResponse" message="tns:IService1_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Show_Username">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Show_Username" message="tns:IService1_Show_Username_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Show_UsernameResponse" message="tns:IService1_Show_Username_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Login" message="tns:IService1_Login_InputMessage" />
@@ -150,6 +160,15 @@
     </wsdl:operation>
     <wsdl:operation name="Logout">
       <soap:operation soapAction="http://tempuri.org/IService1/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Show_Username">
+      <soap:operation soapAction="http://tempuri.org/IService1/Show_Username" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -84,6 +84,7 @@
             this.txtAccess_Code.Name = "txtAccess_Code";
             this.txtAccess_Code.Size = new System.Drawing.Size(138, 22);
             this.txtAccess_Code.TabIndex = 55;
+            this.txtAccess_Code.UseSystemPasswordChar = true;
             this.txtAccess_Code.TextChanged += new System.EventHandler(this.txtAccess_Code_TextChanged);
             // 
             // cmdAccess

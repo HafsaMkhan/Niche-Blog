@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Drawing;
 
 namespace Blogging
 {
@@ -39,6 +40,9 @@ namespace Blogging
         {
             UserDL D = new UserDL();
             D.Delete();
+            BlogDL B = new BlogDL();
+            B.Delete();
+
         }
         public bool ResetPassword(string user, string pwd, string cpwd, string s_ques, string ans)
         {
@@ -52,22 +56,32 @@ namespace Blogging
             bool a = D.Login(user, pwd);
             return a;
         }
-        public void Logout()
+        public string Show_Username()
+        {
+            string u;
+            User U = new User();
+            u = U.Show_Username();
+            return u;
+        }
+        public bool SetImage(string user, Image imag)
+        {
+            UserDL U = new UserDL();
+            bool s = U.SetImage(user, imag);
+            return s;
+        }
+        public bool Logout_U()
         {
             UserDL D = new UserDL();
-            D.Logout(); 
+            bool m = D.Logout_U();
+            return m;
         }
+
         public bool UploadBlog(string name, string type, string writing)
         {
             BlogDL B = new BlogDL();
             bool l = B.UploadBlog(name, type, writing);
             return l;
         }
-        //public void Delete() {
-        //    BlogDL B = new BlogDL();
-        //    B.Delete();
-        //}
-
         public void EditBlog(string titl, string write)
         {
             BlogDL B = new BlogDL();
@@ -80,6 +94,24 @@ namespace Blogging
             return bb;
         }
 
-
+        public bool Access(string nme, string code)
+        {
+            Admin A = new Admin();
+            bool n = A.Access(nme, code);
+            return n;
+        }
+        public bool Reset(string nme, string code, string ncode, string con_code)
+        {
+            bool n;
+            Admin A = new Admin();
+            n = A.Reset(nme, code, ncode, con_code);
+            return n;
+        }
+        public bool Logout_A()
+        {
+            Admin D = new Admin();
+            bool m = D.Logout_A();
+            return m;
+        }
     }
 }

@@ -1,7 +1,6 @@
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\bin\Debug\Niche_Blog.exe.config
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\bin\Debug\Niche_Blog.exe
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\bin\Debug\Niche_Blog.pdb
-C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.csprojResolveAssemblyReference.cache
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.Registration_Login.resources
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.Properties.Resources.resources
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.csproj.GenerateResource.cache
@@ -11,5 +10,7 @@ C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.pdb
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.frmForgetPassword.resources
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.Admin.resources
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.Main.resources
-C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.UserControl1.resources
 C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.ResetAdmin.resources
+C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.ucProfile.resources
+C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.UserPortal.resources
+C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.csprojResolveAssemblyReference.cache

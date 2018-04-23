@@ -58,6 +58,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Show_Username">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Show_UsernameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Show_UsernameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
@@ -134,7 +146,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nme" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -149,9 +161,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nme" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="code" type="xs:int" />
-        <xs:element minOccurs="0" name="ncode" type="xs:int" />
-        <xs:element minOccurs="0" name="con_code" type="xs:int" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ncode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="con_code" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

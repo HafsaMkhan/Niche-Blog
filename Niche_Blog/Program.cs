@@ -16,7 +16,7 @@ namespace Niche_Blog
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Registration_Login());
+            Application.Run(new Main());
         }
     }
 }

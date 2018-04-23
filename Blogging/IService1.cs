@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Drawing;
 
 namespace Blogging
 {
@@ -22,8 +23,11 @@ namespace Blogging
         [OperationContract]
         bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder);
         [OperationContract]
-        void Logout();
-
+        bool Logout_U();
+        [OperationContract]
+        string Show_Username();
+        [OperationContract]
+        bool SetImage(string user, Image imag);
         [OperationContract]
         bool Login(string user, string pwd);
         [OperationContract]
@@ -31,9 +35,21 @@ namespace Blogging
         [OperationContract]
         void Delete();
         [OperationContract]
+
+        //Blog
         bool UploadBlog(string name, string type, string writing);
         [OperationContract]
         void EditBlog(string titl, string write);
+        [OperationContract]
+        Blog ReadBlog(string name);
+        
+        //Admin
+        [OperationContract]
+        bool Access(string nme, string code);
+        [OperationContract]
+        bool Reset(string nme, string code, string ncode, string con_code);
+        [OperationContract]
+        bool Logout_A();
         // TODO: Add your service operations here
     }
 
