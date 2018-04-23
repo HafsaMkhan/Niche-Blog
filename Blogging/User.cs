@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Drawing;
 
 namespace Blogging
 
@@ -13,9 +14,10 @@ namespace Blogging
         private string Password;
         private string CPassword;
         private string Gender;
-        private Interests Type;
         private string SecretQuestion;
         private string Answer;
+        private Image Img;
+        //private string[] Genre;
 
         public string username { get => Username; set => Username = value; }
         public string password { get => Password; set => Password = value; }
@@ -23,7 +25,14 @@ namespace Blogging
         public string gender { get => Gender; set => Gender = value; }
         public string secretQuestion { get => SecretQuestion; set => SecretQuestion = value; }
         public string answer { get => Answer; set => Answer = value; }
-        public Interests type { get => Type; set => Type = value; }
+        public Image img { get => Img; set => Img = value; }
+
+        //  public string[] genre { get => Genre; set => Genre = value; }
+
+        public string Show_Username()
+        {
+            return username;
+        }
     }
         
     }

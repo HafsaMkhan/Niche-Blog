@@ -7,15 +7,22 @@ namespace Blogging
 {
     public class Admin
     {
-        private int SecurityCode;
+        private string SecurityCode;
         private string Name;
-
-        public int securityCode { get => SecurityCode; set => SecurityCode = value; }
-        public string name { get => Name; set => Name = value; }
-        public void Reset(int code)
+        public Admin()
         {
-            
+            Name = "admin@123";
+            SecurityCode = "12345678";
+        }
 
+        public string securityCode { get => SecurityCode; set => SecurityCode = value; }
+        public string name { get => Name; set => Name = value; }
+
+        public bool Reset(string nme,string code,string ncode,string con_code) { }
+
+        public bool Access(string nme, string code) { }
+
+        public bool Logout_A() { }
     }
 
 }
