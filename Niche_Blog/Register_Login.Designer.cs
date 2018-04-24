@@ -40,6 +40,7 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label lblPassword;
             System.Windows.Forms.Label label2;
+            System.Windows.Forms.Button cmdMain;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registration_Login));
             this.txtSecretQuestion = new System.Windows.Forms.ComboBox();
             this.txtAnswer = new System.Windows.Forms.TextBox();
@@ -51,7 +52,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Interests = new System.Windows.Forms.ComboBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             label4 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             lnkForgetPassword = new System.Windows.Forms.LinkLabel();
@@ -64,6 +65,7 @@
             label3 = new System.Windows.Forms.Label();
             lblPassword = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            cmdMain = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -257,6 +259,24 @@
             label2.TabIndex = 28;
             label2.Text = "Username";
             // 
+            // cmdMain
+            // 
+            cmdMain.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+            cmdMain.BackColor = System.Drawing.Color.SeaShell;
+            cmdMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            cmdMain.CausesValidation = false;
+            cmdMain.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            cmdMain.ForeColor = System.Drawing.Color.Indigo;
+            cmdMain.Location = new System.Drawing.Point(686, 48);
+            cmdMain.Margin = new System.Windows.Forms.Padding(4);
+            cmdMain.Name = "cmdMain";
+            cmdMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            cmdMain.Size = new System.Drawing.Size(165, 46);
+            cmdMain.TabIndex = 52;
+            cmdMain.Text = "Main Page";
+            cmdMain.UseVisualStyleBackColor = false;
+            cmdMain.Click += new System.EventHandler(this.cmdMain_Click);
+            // 
             // txtSecretQuestion
             // 
             this.txtSecretQuestion.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
@@ -298,7 +318,7 @@
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.CausesValidation = false;
             this.checkBox1.ForeColor = System.Drawing.Color.Indigo;
-            this.checkBox1.Location = new System.Drawing.Point(114, 435);
+            this.checkBox1.Location = new System.Drawing.Point(114, 462);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -341,6 +361,7 @@
             this.txtPasswordR.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtPasswordR.Size = new System.Drawing.Size(180, 23);
             this.txtPasswordR.TabIndex = 41;
+            this.txtPasswordR.UseSystemPasswordChar = true;
             this.txtPasswordR.TextChanged += new System.EventHandler(this.txtPasswordR_TextChanged);
             // 
             // txtConfirmPassword
@@ -355,6 +376,7 @@
             this.txtConfirmPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtConfirmPassword.Size = new System.Drawing.Size(180, 23);
             this.txtConfirmPassword.TabIndex = 40;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
             // 
             // txtUsernameR
@@ -383,6 +405,7 @@
             this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtPassword.Size = new System.Drawing.Size(148, 23);
             this.txtPassword.TabIndex = 31;
+            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUsername
@@ -410,26 +433,22 @@
             this.label1.Size = new System.Drawing.Size(355, 85);
             this.label1.TabIndex = 50;
             this.label1.Text = "NICHE BLOG";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Interests
+            // checkedListBox1
             // 
-            this.Interests.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            this.Interests.AllowDrop = true;
-            this.Interests.BackColor = System.Drawing.Color.SeaShell;
-            this.Interests.CausesValidation = false;
-            this.Interests.ForeColor = System.Drawing.Color.Indigo;
-            this.Interests.FormattingEnabled = true;
-            this.Interests.Items.AddRange(new object[] {
+            this.checkedListBox1.BackColor = System.Drawing.Color.SeaShell;
+            this.checkedListBox1.ForeColor = System.Drawing.Color.Indigo;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
             "Social Life",
             "Health",
             "Fitness",
             "Studies"});
-            this.Interests.Location = new System.Drawing.Point(268, 353);
-            this.Interests.Margin = new System.Windows.Forms.Padding(4);
-            this.Interests.Name = "Interests";
-            this.Interests.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Interests.Size = new System.Drawing.Size(180, 24);
-            this.Interests.TabIndex = 51;
+            this.checkedListBox1.Location = new System.Drawing.Point(269, 361);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(178, 94);
+            this.checkedListBox1.TabIndex = 53;
             // 
             // Registration_Login
             // 
@@ -444,7 +463,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(899, 555);
-            this.Controls.Add(this.Interests);
+            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(cmdMain);
             this.Controls.Add(this.label1);
             this.Controls.Add(label4);
             this.Controls.Add(label9);
@@ -477,6 +497,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "User Portal";
+            this.Load += new System.EventHandler(this.Registration_Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,7 +515,7 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPasswordR;
         private System.Windows.Forms.TextBox txtConfirmPassword;
-        private System.Windows.Forms.ComboBox Interests;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }
 

@@ -51,5 +51,19 @@ namespace Niche_Blog
                 MessageBox.Show("Incorrect information.");
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            UserPortal up = new UserPortal();
+            up.Show();
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            frmForgetPassword fp = new frmForgetPassword();
+            fp.Show();
+        }
     }
 }

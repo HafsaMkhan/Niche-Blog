@@ -30,10 +30,62 @@ namespace Blogging
             }
             return composite;
         }
-        public bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder)
+
+        //User
+        public string username()
+        {
+            User U = new User();
+            string s = U.username;
+            return s;
+        }
+        public string password()
+        {
+            User U = new User();
+            string s = U.password;
+            return s;
+        }
+        public string cpassword()
+        {
+            User U = new User();
+            string s = U.password;
+            return s;
+        }
+        public string gender()
+        {
+            User U = new User();
+            string s = U.gender;
+            return s;
+        }
+        public string secretQuestion()
+        {
+            User U = new User();
+            string s = U.secretQuestion;
+            return s;
+        }
+        public string answer()
+        {
+            User U = new User();
+            string s = U.answer;
+            return s;
+        }
+        public Image img()
+        {
+            User U = new User();
+            Image s = U.img;
+            return s;
+        }
+        public InterestDL userGenre()
+        {
+            User U = new User();
+            InterestDL s = U.userGenre;
+            return s;
+        }
+
+        //UserDL
+        public bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, string[] intrst)
         {
             UserDL D = new UserDL();
-            bool a = D.AddUser(user, pwd, cpwd, s_ques, ans, gnder);
+            bool a = D.AddUser(user, pwd, cpwd, s_ques, ans, gnder, intrst);
             return a;
         }
         public void Delete()
@@ -56,13 +108,6 @@ namespace Blogging
             bool a = D.Login(user, pwd);
             return a;
         }
-        public string Show_Username()
-        {
-            string u;
-            User U = new User();
-            u = U.Show_Username();
-            return u;
-        }
         public bool SetImage(string user, Image imag)
         {
             UserDL U = new UserDL();
@@ -76,6 +121,27 @@ namespace Blogging
             return m;
         }
 
+        //Blog
+        public string title()
+        {
+            Blog B = new Blog();
+            string m = B.title;
+            return m;
+        }
+        public string genre()
+        {
+            Blog B = new Blog();
+            string m = B.genre;
+            return m;
+        }
+        public string text()
+        {
+            Blog B = new Blog();
+            string m = B.text;
+            return m;
+        }
+
+        //BlogDL
         public bool UploadBlog(string name, string type, string writing)
         {
             BlogDL B = new BlogDL();
@@ -94,6 +160,19 @@ namespace Blogging
             return bb;
         }
 
+        //Admin
+        public string securityCode()
+        {
+            Admin A = new Admin();
+            string v = A.securityCode;
+            return v;
+        }
+        public string name()
+        {
+            Admin A = new Admin();
+            string v = A.name;
+            return v;
+        }
         public bool Access(string nme, string code)
         {
             Admin A = new Admin();

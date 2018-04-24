@@ -20,12 +20,29 @@ namespace Blogging
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
+        //User 
         [OperationContract]
-        bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder);
+        string username();
+        [OperationContract]
+        string password();
+        [OperationContract]
+        string cpassword();
+        [OperationContract]
+        string gender();
+        [OperationContract]
+        string secretQuestion();
+        [OperationContract]
+        string answer();
+        [OperationContract]
+        Image img();
+        [OperationContract]
+        InterestDL userGenre();
+
+        //UserDL
+        [OperationContract]
+        bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, string[] intrst);
         [OperationContract]
         bool Logout_U();
-        [OperationContract]
-        string Show_Username();
         [OperationContract]
         bool SetImage(string user, Image imag);
         [OperationContract]
@@ -34,16 +51,30 @@ namespace Blogging
         bool ResetPassword(string user, string pwd, string cpwd, string s_ques, string ans);
         [OperationContract]
         void Delete();
-        [OperationContract]
+
+
 
         //Blog
+        [OperationContract]
+        string title();
+        [OperationContract]
+        string genre();
+        [OperationContract]
+        string text();
+
+        //BlogDL
+        [OperationContract]
         bool UploadBlog(string name, string type, string writing);
         [OperationContract]
         void EditBlog(string titl, string write);
         [OperationContract]
         Blog ReadBlog(string name);
-        
+
         //Admin
+        [OperationContract]
+        string securityCode();
+        [OperationContract]
+        string name();
         [OperationContract]
         bool Access(string nme, string code);
         [OperationContract]

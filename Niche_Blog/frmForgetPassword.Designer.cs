@@ -54,34 +54,6 @@
             label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtConfirmPassword
-            // 
-            this.txtConfirmPassword.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            this.txtConfirmPassword.BackColor = System.Drawing.Color.SeaShell;
-            this.txtConfirmPassword.CausesValidation = false;
-            this.txtConfirmPassword.ForeColor = System.Drawing.Color.Indigo;
-            this.txtConfirmPassword.Location = new System.Drawing.Point(465, 359);
-            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtConfirmPassword.Size = new System.Drawing.Size(148, 20);
-            this.txtConfirmPassword.TabIndex = 52;
-            this.txtConfirmPassword.UseSystemPasswordChar = true;
-            // 
-            // txtPasswordR
-            // 
-            this.txtPasswordR.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            this.txtPasswordR.BackColor = System.Drawing.Color.SeaShell;
-            this.txtPasswordR.CausesValidation = false;
-            this.txtPasswordR.ForeColor = System.Drawing.Color.Indigo;
-            this.txtPasswordR.Location = new System.Drawing.Point(465, 325);
-            this.txtPasswordR.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPasswordR.Name = "txtPasswordR";
-            this.txtPasswordR.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtPasswordR.Size = new System.Drawing.Size(148, 20);
-            this.txtPasswordR.TabIndex = 53;
-            this.txtPasswordR.UseSystemPasswordChar = true;
-            // 
             // label7
             // 
             label7.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
@@ -146,6 +118,50 @@
             label9.TabIndex = 59;
             label9.Text = "Answer";
             // 
+            // label3
+            // 
+            label3.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+            label3.AutoSize = true;
+            label3.BackColor = System.Drawing.Color.Transparent;
+            label3.CausesValidation = false;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.ForeColor = System.Drawing.Color.Indigo;
+            label3.Location = new System.Drawing.Point(312, 231);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            label3.Size = new System.Drawing.Size(79, 16);
+            label3.TabIndex = 72;
+            label3.Text = "Username";
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+            this.txtConfirmPassword.BackColor = System.Drawing.Color.SeaShell;
+            this.txtConfirmPassword.CausesValidation = false;
+            this.txtConfirmPassword.ForeColor = System.Drawing.Color.Indigo;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(465, 359);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtConfirmPassword.Size = new System.Drawing.Size(148, 20);
+            this.txtConfirmPassword.TabIndex = 52;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
+            // 
+            // txtPasswordR
+            // 
+            this.txtPasswordR.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+            this.txtPasswordR.BackColor = System.Drawing.Color.SeaShell;
+            this.txtPasswordR.CausesValidation = false;
+            this.txtPasswordR.ForeColor = System.Drawing.Color.Indigo;
+            this.txtPasswordR.Location = new System.Drawing.Point(465, 325);
+            this.txtPasswordR.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPasswordR.Name = "txtPasswordR";
+            this.txtPasswordR.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtPasswordR.Size = new System.Drawing.Size(148, 20);
+            this.txtPasswordR.TabIndex = 53;
+            this.txtPasswordR.UseSystemPasswordChar = true;
+            // 
             // SecretQuestion
             // 
             this.SecretQuestion.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
@@ -177,22 +193,6 @@
             this.txtAnswer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtAnswer.Size = new System.Drawing.Size(148, 20);
             this.txtAnswer.TabIndex = 61;
-            // 
-            // label3
-            // 
-            label3.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            label3.AutoSize = true;
-            label3.BackColor = System.Drawing.Color.Transparent;
-            label3.CausesValidation = false;
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.Color.Indigo;
-            label3.Location = new System.Drawing.Point(312, 231);
-            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            label3.Size = new System.Drawing.Size(79, 16);
-            label3.TabIndex = 72;
-            label3.Text = "Username";
             // 
             // txtUsernameR
             // 
@@ -249,6 +249,7 @@
             this.linkLabel1.TabIndex = 65;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Home";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel2
             // 
@@ -294,6 +295,7 @@
             this.linkLabel4.TabIndex = 68;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "Reset Password";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // linkLabel5
             // 

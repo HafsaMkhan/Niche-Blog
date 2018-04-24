@@ -5,6 +5,8 @@
       <xsd:import schemaLocation="http://localhost:58818/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:58818/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:58818/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Blogging" />
+      <xsd:import schemaLocation="http://localhost:58818/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+      <xsd:import schemaLocation="http://localhost:58818/Service1.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetData_InputMessage">
@@ -19,23 +21,71 @@
   <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_username_InputMessage">
+    <wsdl:part name="parameters" element="tns:username" />
+  </wsdl:message>
+  <wsdl:message name="IService1_username_OutputMessage">
+    <wsdl:part name="parameters" element="tns:usernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_password_InputMessage">
+    <wsdl:part name="parameters" element="tns:password" />
+  </wsdl:message>
+  <wsdl:message name="IService1_password_OutputMessage">
+    <wsdl:part name="parameters" element="tns:passwordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_cpassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:cpassword" />
+  </wsdl:message>
+  <wsdl:message name="IService1_cpassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:cpasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_gender_InputMessage">
+    <wsdl:part name="parameters" element="tns:gender" />
+  </wsdl:message>
+  <wsdl:message name="IService1_gender_OutputMessage">
+    <wsdl:part name="parameters" element="tns:genderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_secretQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:secretQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_secretQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:secretQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_answer_InputMessage">
+    <wsdl:part name="parameters" element="tns:answer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_answer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:answerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_img_InputMessage">
+    <wsdl:part name="parameters" element="tns:img" />
+  </wsdl:message>
+  <wsdl:message name="IService1_img_OutputMessage">
+    <wsdl:part name="parameters" element="tns:imgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_userGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:userGenre" />
+  </wsdl:message>
+  <wsdl:message name="IService1_userGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:userGenreResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_AddUser_InputMessage">
     <wsdl:part name="parameters" element="tns:AddUser" />
   </wsdl:message>
   <wsdl:message name="IService1_AddUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddUserResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_Logout_InputMessage">
-    <wsdl:part name="parameters" element="tns:Logout" />
+  <wsdl:message name="IService1_Logout_U_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout_U" />
   </wsdl:message>
-  <wsdl:message name="IService1_Logout_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  <wsdl:message name="IService1_Logout_U_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Logout_UResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_Show_Username_InputMessage">
-    <wsdl:part name="parameters" element="tns:Show_Username" />
+  <wsdl:message name="IService1_SetImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetImage" />
   </wsdl:message>
-  <wsdl:message name="IService1_Show_Username_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Show_UsernameResponse" />
+  <wsdl:message name="IService1_SetImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetImageResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
@@ -55,6 +105,24 @@
   <wsdl:message name="IService1_Delete_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_title_InputMessage">
+    <wsdl:part name="parameters" element="tns:title" />
+  </wsdl:message>
+  <wsdl:message name="IService1_title_OutputMessage">
+    <wsdl:part name="parameters" element="tns:titleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_genre_InputMessage">
+    <wsdl:part name="parameters" element="tns:genre" />
+  </wsdl:message>
+  <wsdl:message name="IService1_genre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:genreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_text_InputMessage">
+    <wsdl:part name="parameters" element="tns:text" />
+  </wsdl:message>
+  <wsdl:message name="IService1_text_OutputMessage">
+    <wsdl:part name="parameters" element="tns:textResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_UploadBlog_InputMessage">
     <wsdl:part name="parameters" element="tns:UploadBlog" />
   </wsdl:message>
@@ -66,6 +134,24 @@
   </wsdl:message>
   <wsdl:message name="IService1_EditBlog_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditBlogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ReadBlog_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadBlog" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ReadBlog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadBlogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_securityCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:securityCode" />
+  </wsdl:message>
+  <wsdl:message name="IService1_securityCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:securityCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_name_InputMessage">
+    <wsdl:part name="parameters" element="tns:name" />
+  </wsdl:message>
+  <wsdl:message name="IService1_name_OutputMessage">
+    <wsdl:part name="parameters" element="tns:nameResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_Access_InputMessage">
     <wsdl:part name="parameters" element="tns:Access" />
@@ -79,6 +165,12 @@
   <wsdl:message name="IService1_Reset_OutputMessage">
     <wsdl:part name="parameters" element="tns:ResetResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Logout_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout_A" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Logout_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Logout_AResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -88,17 +180,49 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="username">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/username" message="tns:IService1_username_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/usernameResponse" message="tns:IService1_username_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="password">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/password" message="tns:IService1_password_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/passwordResponse" message="tns:IService1_password_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="cpassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/cpassword" message="tns:IService1_cpassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/cpasswordResponse" message="tns:IService1_cpassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gender">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/gender" message="tns:IService1_gender_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/genderResponse" message="tns:IService1_gender_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="secretQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/secretQuestion" message="tns:IService1_secretQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/secretQuestionResponse" message="tns:IService1_secretQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="answer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/answer" message="tns:IService1_answer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/answerResponse" message="tns:IService1_answer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="img">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/img" message="tns:IService1_img_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/imgResponse" message="tns:IService1_img_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="userGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/userGenre" message="tns:IService1_userGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/userGenreResponse" message="tns:IService1_userGenre_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddUser" message="tns:IService1_AddUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddUserResponse" message="tns:IService1_AddUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Logout">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Logout" message="tns:IService1_Logout_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogoutResponse" message="tns:IService1_Logout_OutputMessage" />
+    <wsdl:operation name="Logout_U">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Logout_U" message="tns:IService1_Logout_U_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Logout_UResponse" message="tns:IService1_Logout_U_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Show_Username">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Show_Username" message="tns:IService1_Show_Username_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Show_UsernameResponse" message="tns:IService1_Show_Username_OutputMessage" />
+    <wsdl:operation name="SetImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetImage" message="tns:IService1_SetImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetImageResponse" message="tns:IService1_SetImage_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Login" message="tns:IService1_Login_InputMessage" />
@@ -112,6 +236,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete" message="tns:IService1_Delete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteResponse" message="tns:IService1_Delete_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="title">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/title" message="tns:IService1_title_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/titleResponse" message="tns:IService1_title_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="genre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/genre" message="tns:IService1_genre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/genreResponse" message="tns:IService1_genre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="text">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/text" message="tns:IService1_text_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/textResponse" message="tns:IService1_text_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UploadBlog">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UploadBlog" message="tns:IService1_UploadBlog_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UploadBlogResponse" message="tns:IService1_UploadBlog_OutputMessage" />
@@ -120,6 +256,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/EditBlog" message="tns:IService1_EditBlog_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/EditBlogResponse" message="tns:IService1_EditBlog_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ReadBlog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ReadBlog" message="tns:IService1_ReadBlog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ReadBlogResponse" message="tns:IService1_ReadBlog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="securityCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/securityCode" message="tns:IService1_securityCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/securityCodeResponse" message="tns:IService1_securityCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="name">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/name" message="tns:IService1_name_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/nameResponse" message="tns:IService1_name_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Access">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Access" message="tns:IService1_Access_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AccessResponse" message="tns:IService1_Access_OutputMessage" />
@@ -127,6 +275,10 @@
     <wsdl:operation name="Reset">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Reset" message="tns:IService1_Reset_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ResetResponse" message="tns:IService1_Reset_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Logout_A" message="tns:IService1_Logout_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Logout_AResponse" message="tns:IService1_Logout_A_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -149,6 +301,78 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="username">
+      <soap:operation soapAction="http://tempuri.org/IService1/username" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="password">
+      <soap:operation soapAction="http://tempuri.org/IService1/password" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cpassword">
+      <soap:operation soapAction="http://tempuri.org/IService1/cpassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gender">
+      <soap:operation soapAction="http://tempuri.org/IService1/gender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="secretQuestion">
+      <soap:operation soapAction="http://tempuri.org/IService1/secretQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="answer">
+      <soap:operation soapAction="http://tempuri.org/IService1/answer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="img">
+      <soap:operation soapAction="http://tempuri.org/IService1/img" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="userGenre">
+      <soap:operation soapAction="http://tempuri.org/IService1/userGenre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddUser">
       <soap:operation soapAction="http://tempuri.org/IService1/AddUser" style="document" />
       <wsdl:input>
@@ -158,8 +382,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Logout">
-      <soap:operation soapAction="http://tempuri.org/IService1/Logout" style="document" />
+    <wsdl:operation name="Logout_U">
+      <soap:operation soapAction="http://tempuri.org/IService1/Logout_U" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -167,8 +391,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Show_Username">
-      <soap:operation soapAction="http://tempuri.org/IService1/Show_Username" style="document" />
+    <wsdl:operation name="SetImage">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetImage" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -203,6 +427,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="title">
+      <soap:operation soapAction="http://tempuri.org/IService1/title" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="genre">
+      <soap:operation soapAction="http://tempuri.org/IService1/genre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="text">
+      <soap:operation soapAction="http://tempuri.org/IService1/text" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UploadBlog">
       <soap:operation soapAction="http://tempuri.org/IService1/UploadBlog" style="document" />
       <wsdl:input>
@@ -221,6 +472,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ReadBlog">
+      <soap:operation soapAction="http://tempuri.org/IService1/ReadBlog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="securityCode">
+      <soap:operation soapAction="http://tempuri.org/IService1/securityCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="name">
+      <soap:operation soapAction="http://tempuri.org/IService1/name" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Access">
       <soap:operation soapAction="http://tempuri.org/IService1/Access" style="document" />
       <wsdl:input>
@@ -232,6 +510,15 @@
     </wsdl:operation>
     <wsdl:operation name="Reset">
       <soap:operation soapAction="http://tempuri.org/IService1/Reset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout_A">
+      <soap:operation soapAction="http://tempuri.org/IService1/Logout_A" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

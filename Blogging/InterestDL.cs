@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Runtime.Serialization;
 namespace Blogging
 {
     public class InterestDL
     {
-        public static List<Interests> interest = new List<Interests>();
+        [DataMember]
+        public static List<string> interest = new List<string>();
 
 
     }

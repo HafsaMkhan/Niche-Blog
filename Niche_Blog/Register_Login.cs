@@ -45,36 +45,54 @@ namespace Niche_Blog
 
         private void cmdResgister_Click(object sender, EventArgs e)
         {
+            string[] arr = new string[checkedListBox1.Items.Count];
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                if (checkedListBox1.GetItemChecked(i))
+                {
+                    arr[i] = (string)checkedListBox1.Items[i];
+                }
+            }
             bool Validate;
             bool valid ;
 
             server.Service1 server = new server.Service1();
-            server.AddUser( txtUsernameR.Text, txtPasswordR.Text, txtConfirmPassword.Text, txtSecretQuestion.Text, txtAnswer.Text, txtgender.Text, out Validate, out valid);
-            if(Validate == true )
+            server.AddUser( txtUsernameR.Text, txtPasswordR.Text, txtConfirmPassword.Text, txtSecretQuestion.Text, txtAnswer.Text, txtgender.Text, arr, out Validate, out valid);
+            if (txtPasswordR.Text != txtConfirmPassword.Text)
             {
-                if (checkBox1.Checked == true)
-                {
-                    MessageBox.Show("Congragulations! You registered successfully.");
-                    txtUsernameR.Text = "";
-                    txtPasswordR.Text = "";
-                    txtConfirmPassword.Text = "";
-                    txtSecretQuestion.Text = "";
-                    txtAnswer.Text = "";
-                    Interests.Text = "";
-                    txtgender.Text = "";
-                    checkBox1.Checked = false;
-                }
-                else
-                {
-                    MessageBox.Show("You need to agree with terms and condition in order to proceed");
-                }
+                MessageBox.Show("Password does not match!");
             }
             else
             {
-                MessageBox.Show("Invalid inputs");
-                checkBox1.Checked = false;
-                txtPasswordR.Text = "";
-                txtConfirmPassword.Text = "";
+                if (Validate == true)
+                {
+                    if (checkBox1.Checked == true)
+                    {
+                            MessageBox.Show("Congragulations! You registered successfully.");
+                            txtUsernameR.Text = "";
+                            txtPasswordR.Text = "";
+                            txtConfirmPassword.Text = "";
+                            txtSecretQuestion.Text = "";
+                            txtAnswer.Text = "";
+                            foreach (int i in checkedListBox1.CheckedIndices)
+                            {
+                                checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                            }
+                            txtgender.Text = "";
+                            checkBox1.Checked = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("You need to agree with terms and condition in order to proceed");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid inputs");
+                    checkBox1.Checked = false;
+                    txtPasswordR.Text = "";
+                    txtConfirmPassword.Text = "";
+                }
             }
         }
 
@@ -86,7 +104,9 @@ namespace Niche_Blog
             server.Login(txtUsername.Text, txtPassword.Text, out is_valid, out validate);
             if(is_valid == true)
             {
-                MessageBox.Show("Login successful");
+                this.Hide();
+                UserPortal up = new UserPortal();
+                up.Show();
             }
             else
             {
@@ -137,6 +157,23 @@ namespace Niche_Blog
         public void InterestList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmdMain_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main mp = new Main();
+            mp.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Registration_Login_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

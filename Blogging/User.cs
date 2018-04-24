@@ -3,21 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Drawing;
+using System.Runtime.Serialization;
 
 namespace Blogging
 
 {
+    [DataContract]
     public class User
     {
-       
+       [DataMember]
         private string Username;
+        [DataMember]
         private string Password;
+        [DataMember]
         private string CPassword;
+        [DataMember]
         private string Gender;
+        [DataMember]
         private string SecretQuestion;
+        [DataMember]
         private string Answer;
+        [DataMember]
         private Image Img;
-        //private string[] Genre;
+        [DataMember]
+        private InterestDL UserGenre;
 
         public string username { get => Username; set => Username = value; }
         public string password { get => Password; set => Password = value; }
@@ -26,13 +35,6 @@ namespace Blogging
         public string secretQuestion { get => SecretQuestion; set => SecretQuestion = value; }
         public string answer { get => Answer; set => Answer = value; }
         public Image img { get => Img; set => Img = value; }
-
-        //  public string[] genre { get => Genre; set => Genre = value; }
-
-        public string Show_Username()
-        {
-            return username;
-        }
-    }
-        
-    }
+        public InterestDL userGenre { get => UserGenre; set => UserGenre = value; }
+    }   
+}
