@@ -166,10 +166,10 @@ namespace Niche_Blog
             this.tabreset_code.Controls.Add(this.label3);
             this.tabreset_code.Controls.Add(this.label2);
             this.tabreset_code.ForeColor = System.Drawing.Color.Indigo;
-            this.tabreset_code.Location = new System.Drawing.Point(4, 25);
+            this.tabreset_code.Location = new System.Drawing.Point(4, 22);
             this.tabreset_code.Name = "tabreset_code";
             this.tabreset_code.Padding = new System.Windows.Forms.Padding(3);
-            this.tabreset_code.Size = new System.Drawing.Size(661, 336);
+            this.tabreset_code.Size = new System.Drawing.Size(661, 339);
             this.tabreset_code.TabIndex = 2;
             this.tabreset_code.Text = "Reset Code";
             this.tabreset_code.UseVisualStyleBackColor = true;
@@ -294,6 +294,7 @@ namespace Niche_Blog
             this.lnkAdminLogout.TabIndex = 53;
             this.lnkAdminLogout.TabStop = true;
             this.lnkAdminLogout.Text = "Logout";
+            this.lnkAdminLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAdminLogout_LinkClicked);
             // 
             // ResetAdmin
             // 
@@ -382,6 +383,13 @@ namespace Niche_Blog
             {
                 MessageBox.Show("Numeric inputs are valid only.");
             }
+        }
+
+        private void lnkAdminLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Admin A = new Admin();
+            A.Show();
         }
     }
 }

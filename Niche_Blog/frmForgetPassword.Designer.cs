@@ -328,6 +328,7 @@
             this.linkLabel6.TabIndex = 70;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Text = "Logout";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
             // frmForgetPassword
             // 

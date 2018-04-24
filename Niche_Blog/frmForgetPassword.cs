@@ -65,5 +65,13 @@ namespace Niche_Blog
             frmForgetPassword fp = new frmForgetPassword();
             fp.Show();
         }
+
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MyUtility.loginUserName = "";
+            this.Hide();
+            Registration_Login rl = new Registration_Login();
+            rl.Show();
+        }
     }
 }

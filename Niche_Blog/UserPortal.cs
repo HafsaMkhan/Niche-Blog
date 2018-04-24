@@ -99,7 +99,10 @@ namespace Niche_Blog
 
         private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            MyUtility.loginUserName = "";
+            this.Hide();
+            Registration_Login rl = new Registration_Login();
+            rl.Show();
         }
     }
 }
