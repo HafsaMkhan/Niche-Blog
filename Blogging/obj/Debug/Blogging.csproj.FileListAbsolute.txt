@@ -5,3 +5,7 @@ C:\Users\Samee\OneDrive\Documents\Blogging\Blogging\bin\Blogging.dll
 C:\Users\Samee\OneDrive\Documents\Blogging\Blogging\bin\Blogging.pdb
 C:\Users\Samee\OneDrive\Documents\Blogging\Blogging\obj\Debug\Blogging.dll
 C:\Users\Samee\OneDrive\Documents\Blogging\Blogging\obj\Debug\Blogging.pdb
+C:\Users\Samee\Desktop\Niche-Blog\Blogging\obj\Debug\Blogging.csprojResolveAssemblyReference.cache
+C:\Users\Samee\Desktop\Niche-Blog\Blogging\obj\Debug\Blogging.csproj.CoreCompileInputs.cache
+C:\Users\Samee\Desktop\Niche-Blog\Blogging\obj\Debug\Blogging.dll
+C:\Users\Samee\Desktop\Niche-Blog\Blogging\obj\Debug\Blogging.pdb

@@ -163,33 +163,33 @@ namespace Blogging
         //Admin
         public string securityCode()
         {
-            Admin A = new Admin();
+            Admin A = Admin.get_instance();
             string v = A.securityCode;
             return v;
         }
         public string name()
         {
-            Admin A = new Admin();
+            Admin A = Admin.get_instance();
             string v = A.name;
             return v;
         }
         public bool Access(string nme, string code)
         {
-            Admin A = new Admin();
+            Admin A = Admin.get_instance();
             bool n = A.Access(nme, code);
             return n;
         }
         public bool Reset(string nme, string code, string ncode, string con_code)
         {
             bool n;
-            Admin A = new Admin();
+            Admin A = Admin.get_instance();
             n = A.Reset(nme, code, ncode, con_code);
             return n;
         }
         public bool Logout_A()
         {
-            Admin D = new Admin();
-            bool m = D.Logout_A();
+            Admin A = Admin.get_instance();
+            bool m = A.Logout_A();
             return m;
         }
     }
