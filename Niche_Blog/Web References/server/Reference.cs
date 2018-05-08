@@ -61,17 +61,33 @@ namespace Niche_Blog.server {
         
         private System.Threading.SendOrPostCallback DeleteOperationCompleted;
         
+        private System.Threading.SendOrPostCallback getGenreOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetUserOperationCompleted;
+        
         private System.Threading.SendOrPostCallback titleOperationCompleted;
         
         private System.Threading.SendOrPostCallback genreOperationCompleted;
         
         private System.Threading.SendOrPostCallback textOperationCompleted;
         
+        private System.Threading.SendOrPostCallback authorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback editOperationCompleted;
+        
         private System.Threading.SendOrPostCallback UploadBlogOperationCompleted;
         
         private System.Threading.SendOrPostCallback EditBlogOperationCompleted;
         
         private System.Threading.SendOrPostCallback ReadBlogOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteblogOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback User_BlogOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UserInterestBlogOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getBlogOperationCompleted;
         
         private System.Threading.SendOrPostCallback securityCodeOperationCompleted;
         
@@ -82,6 +98,8 @@ namespace Niche_Blog.server {
         private System.Threading.SendOrPostCallback ResetOperationCompleted;
         
         private System.Threading.SendOrPostCallback Logout_AOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback get_instanceOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -170,6 +188,12 @@ namespace Niche_Blog.server {
         public event DeleteCompletedEventHandler DeleteCompleted;
         
         /// <remarks/>
+        public event getGenreCompletedEventHandler getGenreCompleted;
+        
+        /// <remarks/>
+        public event GetUserCompletedEventHandler GetUserCompleted;
+        
+        /// <remarks/>
         public event titleCompletedEventHandler titleCompleted;
         
         /// <remarks/>
@@ -179,6 +203,12 @@ namespace Niche_Blog.server {
         public event textCompletedEventHandler textCompleted;
         
         /// <remarks/>
+        public event authorCompletedEventHandler authorCompleted;
+        
+        /// <remarks/>
+        public event editCompletedEventHandler editCompleted;
+        
+        /// <remarks/>
         public event UploadBlogCompletedEventHandler UploadBlogCompleted;
         
         /// <remarks/>
@@ -186,6 +216,18 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         public event ReadBlogCompletedEventHandler ReadBlogCompleted;
+        
+        /// <remarks/>
+        public event DeleteblogCompletedEventHandler DeleteblogCompleted;
+        
+        /// <remarks/>
+        public event User_BlogCompletedEventHandler User_BlogCompleted;
+        
+        /// <remarks/>
+        public event UserInterestBlogCompletedEventHandler UserInterestBlogCompleted;
+        
+        /// <remarks/>
+        public event getBlogCompletedEventHandler getBlogCompleted;
         
         /// <remarks/>
         public event securityCodeCompletedEventHandler securityCodeCompleted;
@@ -201,6 +243,9 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         public event Logout_ACompletedEventHandler Logout_ACompleted;
+        
+        /// <remarks/>
+        public event get_instanceCompletedEventHandler get_instanceCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/GetData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -462,10 +507,11 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/userGenre", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public InterestDL userGenre() {
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
+        public Interest[] userGenre() {
             object[] results = this.Invoke("userGenre", new object[0]);
-            return ((InterestDL)(results[0]));
+            return ((Interest[])(results[0]));
         }
         
         /// <remarks/>
@@ -490,7 +536,7 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AddUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AddUser([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string user, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string pwd, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string cpwd, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string s_ques, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string ans, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string gnder, [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)] [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")] string[] intrst, out bool AddUserResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool AddUserResultSpecified) {
+        public void AddUser([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string user, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string pwd, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string cpwd, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string s_ques, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string ans, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string gnder, [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)] [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")] Interest[] intrst, out bool AddUserResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool AddUserResultSpecified) {
             object[] results = this.Invoke("AddUser", new object[] {
                         user,
                         pwd,
@@ -504,12 +550,12 @@ namespace Niche_Blog.server {
         }
         
         /// <remarks/>
-        public void AddUserAsync(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, string[] intrst) {
+        public void AddUserAsync(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, Interest[] intrst) {
             this.AddUserAsync(user, pwd, cpwd, s_ques, ans, gnder, intrst, null);
         }
         
         /// <remarks/>
-        public void AddUserAsync(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, string[] intrst, object userState) {
+        public void AddUserAsync(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, Interest[] intrst, object userState) {
             if ((this.AddUserOperationCompleted == null)) {
                 this.AddUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddUserOperationCompleted);
             }
@@ -662,27 +708,91 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/Delete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void Delete() {
-            this.Invoke("Delete", new object[0]);
+        public void Delete(int index, [System.Xml.Serialization.XmlIgnoreAttribute()] bool indexSpecified) {
+            this.Invoke("Delete", new object[] {
+                        index,
+                        indexSpecified});
         }
         
         /// <remarks/>
-        public void DeleteAsync() {
-            this.DeleteAsync(null);
+        public void DeleteAsync(int index, bool indexSpecified) {
+            this.DeleteAsync(index, indexSpecified, null);
         }
         
         /// <remarks/>
-        public void DeleteAsync(object userState) {
+        public void DeleteAsync(int index, bool indexSpecified, object userState) {
             if ((this.DeleteOperationCompleted == null)) {
                 this.DeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteOperationCompleted);
             }
-            this.InvokeAsync("Delete", new object[0], this.DeleteOperationCompleted, userState);
+            this.InvokeAsync("Delete", new object[] {
+                        index,
+                        indexSpecified}, this.DeleteOperationCompleted, userState);
         }
         
         private void OnDeleteOperationCompleted(object arg) {
             if ((this.DeleteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/getGenre", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
+        public Interest[] getGenre([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string usernme) {
+            object[] results = this.Invoke("getGenre", new object[] {
+                        usernme});
+            return ((Interest[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getGenreAsync(string usernme) {
+            this.getGenreAsync(usernme, null);
+        }
+        
+        /// <remarks/>
+        public void getGenreAsync(string usernme, object userState) {
+            if ((this.getGenreOperationCompleted == null)) {
+                this.getGenreOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetGenreOperationCompleted);
+            }
+            this.InvokeAsync("getGenre", new object[] {
+                        usernme}, this.getGenreOperationCompleted, userState);
+        }
+        
+        private void OngetGenreOperationCompleted(object arg) {
+            if ((this.getGenreCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getGenreCompleted(this, new getGenreCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/GetUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
+        public User[] GetUser() {
+            object[] results = this.Invoke("GetUser", new object[0]);
+            return ((User[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetUserAsync() {
+            this.GetUserAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetUserAsync(object userState) {
+            if ((this.GetUserOperationCompleted == null)) {
+                this.GetUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetUserOperationCompleted);
+            }
+            this.InvokeAsync("GetUser", new object[0], this.GetUserOperationCompleted, userState);
+        }
+        
+        private void OnGetUserOperationCompleted(object arg) {
+            if ((this.GetUserCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetUserCompleted(this, new GetUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -771,30 +881,88 @@ namespace Niche_Blog.server {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/author", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string author() {
+            object[] results = this.Invoke("author", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void authorAsync() {
+            this.authorAsync(null);
+        }
+        
+        /// <remarks/>
+        public void authorAsync(object userState) {
+            if ((this.authorOperationCompleted == null)) {
+                this.authorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnauthorOperationCompleted);
+            }
+            this.InvokeAsync("author", new object[0], this.authorOperationCompleted, userState);
+        }
+        
+        private void OnauthorOperationCompleted(object arg) {
+            if ((this.authorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.authorCompleted(this, new authorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/edit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void edit(out bool editResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool editResultSpecified) {
+            object[] results = this.Invoke("edit", new object[0]);
+            editResult = ((bool)(results[0]));
+            editResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void editAsync() {
+            this.editAsync(null);
+        }
+        
+        /// <remarks/>
+        public void editAsync(object userState) {
+            if ((this.editOperationCompleted == null)) {
+                this.editOperationCompleted = new System.Threading.SendOrPostCallback(this.OneditOperationCompleted);
+            }
+            this.InvokeAsync("edit", new object[0], this.editOperationCompleted, userState);
+        }
+        
+        private void OneditOperationCompleted(object arg) {
+            if ((this.editCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.editCompleted(this, new editCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UploadBlog", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void UploadBlog([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string name, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string type, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string writing, out bool UploadBlogResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool UploadBlogResultSpecified) {
+        public void UploadBlog([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string name, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string type, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string writing, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string writer, out bool UploadBlogResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool UploadBlogResultSpecified) {
             object[] results = this.Invoke("UploadBlog", new object[] {
                         name,
                         type,
-                        writing});
+                        writing,
+                        writer});
             UploadBlogResult = ((bool)(results[0]));
             UploadBlogResultSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
-        public void UploadBlogAsync(string name, string type, string writing) {
-            this.UploadBlogAsync(name, type, writing, null);
+        public void UploadBlogAsync(string name, string type, string writing, string writer) {
+            this.UploadBlogAsync(name, type, writing, writer, null);
         }
         
         /// <remarks/>
-        public void UploadBlogAsync(string name, string type, string writing, object userState) {
+        public void UploadBlogAsync(string name, string type, string writing, string writer, object userState) {
             if ((this.UploadBlogOperationCompleted == null)) {
                 this.UploadBlogOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUploadBlogOperationCompleted);
             }
             this.InvokeAsync("UploadBlog", new object[] {
                         name,
                         type,
-                        writing}, this.UploadBlogOperationCompleted, userState);
+                        writing,
+                        writer}, this.UploadBlogOperationCompleted, userState);
         }
         
         private void OnUploadBlogOperationCompleted(object arg) {
@@ -806,25 +974,27 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/EditBlog", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void EditBlog([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string titl, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string write) {
+        public void EditBlog([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string titl, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string write, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string req) {
             this.Invoke("EditBlog", new object[] {
                         titl,
-                        write});
+                        write,
+                        req});
         }
         
         /// <remarks/>
-        public void EditBlogAsync(string titl, string write) {
-            this.EditBlogAsync(titl, write, null);
+        public void EditBlogAsync(string titl, string write, string req) {
+            this.EditBlogAsync(titl, write, req, null);
         }
         
         /// <remarks/>
-        public void EditBlogAsync(string titl, string write, object userState) {
+        public void EditBlogAsync(string titl, string write, string req, object userState) {
             if ((this.EditBlogOperationCompleted == null)) {
                 this.EditBlogOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEditBlogOperationCompleted);
             }
             this.InvokeAsync("EditBlog", new object[] {
                         titl,
-                        write}, this.EditBlogOperationCompleted, userState);
+                        write,
+                        req}, this.EditBlogOperationCompleted, userState);
         }
         
         private void OnEditBlogOperationCompleted(object arg) {
@@ -861,6 +1031,127 @@ namespace Niche_Blog.server {
             if ((this.ReadBlogCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ReadBlogCompleted(this, new ReadBlogCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/Deleteblog", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void Deleteblog(int index, [System.Xml.Serialization.XmlIgnoreAttribute()] bool indexSpecified) {
+            this.Invoke("Deleteblog", new object[] {
+                        index,
+                        indexSpecified});
+        }
+        
+        /// <remarks/>
+        public void DeleteblogAsync(int index, bool indexSpecified) {
+            this.DeleteblogAsync(index, indexSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteblogAsync(int index, bool indexSpecified, object userState) {
+            if ((this.DeleteblogOperationCompleted == null)) {
+                this.DeleteblogOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteblogOperationCompleted);
+            }
+            this.InvokeAsync("Deleteblog", new object[] {
+                        index,
+                        indexSpecified}, this.DeleteblogOperationCompleted, userState);
+        }
+        
+        private void OnDeleteblogOperationCompleted(object arg) {
+            if ((this.DeleteblogCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteblogCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/User_Blog", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
+        public Blog[] User_Blog([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string writer) {
+            object[] results = this.Invoke("User_Blog", new object[] {
+                        writer});
+            return ((Blog[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void User_BlogAsync(string writer) {
+            this.User_BlogAsync(writer, null);
+        }
+        
+        /// <remarks/>
+        public void User_BlogAsync(string writer, object userState) {
+            if ((this.User_BlogOperationCompleted == null)) {
+                this.User_BlogOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUser_BlogOperationCompleted);
+            }
+            this.InvokeAsync("User_Blog", new object[] {
+                        writer}, this.User_BlogOperationCompleted, userState);
+        }
+        
+        private void OnUser_BlogOperationCompleted(object arg) {
+            if ((this.User_BlogCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.User_BlogCompleted(this, new User_BlogCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UserInterestBlog", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
+        public Blog[] UserInterestBlog([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string user) {
+            object[] results = this.Invoke("UserInterestBlog", new object[] {
+                        user});
+            return ((Blog[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UserInterestBlogAsync(string user) {
+            this.UserInterestBlogAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void UserInterestBlogAsync(string user, object userState) {
+            if ((this.UserInterestBlogOperationCompleted == null)) {
+                this.UserInterestBlogOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUserInterestBlogOperationCompleted);
+            }
+            this.InvokeAsync("UserInterestBlog", new object[] {
+                        user}, this.UserInterestBlogOperationCompleted, userState);
+        }
+        
+        private void OnUserInterestBlogOperationCompleted(object arg) {
+            if ((this.UserInterestBlogCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UserInterestBlogCompleted(this, new UserInterestBlogCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/getBlog", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
+        public Blog[] getBlog() {
+            object[] results = this.Invoke("getBlog", new object[0]);
+            return ((Blog[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getBlogAsync() {
+            this.getBlogAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getBlogAsync(object userState) {
+            if ((this.getBlogOperationCompleted == null)) {
+                this.getBlogOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetBlogOperationCompleted);
+            }
+            this.InvokeAsync("getBlog", new object[0], this.getBlogOperationCompleted, userState);
+        }
+        
+        private void OngetBlogOperationCompleted(object arg) {
+            if ((this.getBlogCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getBlogCompleted(this, new getBlogCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1017,6 +1308,34 @@ namespace Niche_Blog.server {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/get_instance", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Admin get_instance() {
+            object[] results = this.Invoke("get_instance", new object[0]);
+            return ((Admin)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void get_instanceAsync() {
+            this.get_instanceAsync(null);
+        }
+        
+        /// <remarks/>
+        public void get_instanceAsync(object userState) {
+            if ((this.get_instanceOperationCompleted == null)) {
+                this.get_instanceOperationCompleted = new System.Threading.SendOrPostCallback(this.Onget_instanceOperationCompleted);
+            }
+            this.InvokeAsync("get_instance", new object[0], this.get_instanceOperationCompleted, userState);
+        }
+        
+        private void Onget_instanceOperationCompleted(object arg) {
+            if ((this.get_instanceCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.get_instanceCompleted(this, new get_instanceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1088,13 +1407,99 @@ namespace Niche_Blog.server {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
+    public partial class Admin {
+        
+        private string defaultcodeField;
+        
+        private string nameField;
+        
+        private string securityCodeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Defaultcode {
+            get {
+                return this.defaultcodeField;
+            }
+            set {
+                this.defaultcodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string securityCode {
+            get {
+                return this.securityCodeField;
+            }
+            set {
+                this.securityCodeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
     public partial class Blog {
+        
+        private string authorField;
+        
+        private bool editField;
+        
+        private bool editFieldSpecified;
         
         private string genreField;
         
         private string textField;
         
         private string titleField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string author {
+            get {
+                return this.authorField;
+            }
+            set {
+                this.authorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool edit {
+            get {
+                return this.editField;
+            }
+            set {
+                this.editField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool editSpecified {
+            get {
+                return this.editFieldSpecified;
+            }
+            set {
+                this.editFieldSpecified = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -1136,7 +1541,85 @@ namespace Niche_Blog.server {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
-    public partial class InterestDL {
+    public partial class User {
+        
+        private string answerField;
+        
+        private string genderField;
+        
+        private Image imgField;
+        
+        private string secretQuestionField;
+        
+        private Interest[] userGenreField;
+        
+        private string usernameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string answer {
+            get {
+                return this.answerField;
+            }
+            set {
+                this.answerField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string gender {
+            get {
+                return this.genderField;
+            }
+            set {
+                this.genderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Image img {
+            get {
+                return this.imgField;
+            }
+            set {
+                this.imgField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string secretQuestion {
+            get {
+                return this.secretQuestionField;
+            }
+            set {
+                this.secretQuestionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Interest[] userGenre {
+            get {
+                return this.userGenreField;
+            }
+            set {
+                this.userGenreField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string username {
+            get {
+                return this.usernameField;
+            }
+            set {
+                this.usernameField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1170,6 +1653,42 @@ namespace Niche_Blog.server {
             }
             set {
                 this.factoryTypeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Blogging")]
+    public partial class Interest {
+        
+        private string[] multi_InterestField;
+        
+        private string typeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
+        public string[] Multi_Interest {
+            get {
+                return this.multi_InterestField;
+            }
+            set {
+                this.multi_InterestField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
             }
         }
     }
@@ -1426,10 +1945,10 @@ namespace Niche_Blog.server {
         }
         
         /// <remarks/>
-        public InterestDL Result {
+        public Interest[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((InterestDL)(this.results[0]));
+                return ((Interest[])(this.results[0]));
             }
         }
     }
@@ -1610,6 +2129,58 @@ namespace Niche_Blog.server {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void getGenreCompletedEventHandler(object sender, getGenreCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getGenreCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getGenreCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Interest[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Interest[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void GetUserCompletedEventHandler(object sender, GetUserCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public User[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((User[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
     public delegate void titleCompletedEventHandler(object sender, titleCompletedEventArgs e);
     
     /// <remarks/>
@@ -1688,6 +2259,66 @@ namespace Niche_Blog.server {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void authorCompletedEventHandler(object sender, authorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class authorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal authorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void editCompletedEventHandler(object sender, editCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class editCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal editCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool editResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool editResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
     public delegate void UploadBlogCompletedEventHandler(object sender, UploadBlogCompletedEventArgs e);
     
     /// <remarks/>
@@ -1746,6 +2377,88 @@ namespace Niche_Blog.server {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Blog)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void DeleteblogCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void User_BlogCompletedEventHandler(object sender, User_BlogCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class User_BlogCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal User_BlogCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Blog[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Blog[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void UserInterestBlogCompletedEventHandler(object sender, UserInterestBlogCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UserInterestBlogCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UserInterestBlogCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Blog[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Blog[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void getBlogCompletedEventHandler(object sender, getBlogCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getBlogCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getBlogCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Blog[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Blog[])(this.results[0]));
             }
         }
     }
@@ -1900,6 +2613,32 @@ namespace Niche_Blog.server {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void get_instanceCompletedEventHandler(object sender, get_instanceCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class get_instanceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal get_instanceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Admin Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Admin)(this.results[0]));
             }
         }
     }

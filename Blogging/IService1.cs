@@ -36,23 +36,27 @@ namespace Blogging
         [OperationContract]
         Image img();
         [OperationContract]
-        InterestDL userGenre();
+        List<Interest> userGenre();
 
         //UserDL
         [OperationContract]
-        bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, string[] intrst);
+        bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, Interest[] intrst);
         [OperationContract]
         bool Logout_U();
         [OperationContract]
-        bool SetImage(string user, Image imag);
+        bool SetImage(string user, System.Drawing.Image imag);
         [OperationContract]
         bool Login(string user, string pwd);
         [OperationContract]
         bool ResetPassword(string user, string pwd, string cpwd, string s_ques, string ans);
         [OperationContract]
-        void Delete();
-
-
+        void Delete(Int32 index);
+        [OperationContract]
+        List<Interest> getGenre(string usernme);
+        [OperationContract]
+        List<User> GetUser();
+        //[OperationContract]
+        //Image getImage(string user);
 
         //Blog
         [OperationContract]
@@ -61,14 +65,29 @@ namespace Blogging
         string genre();
         [OperationContract]
         string text();
+        [OperationContract]
+        string author();
+        [OperationContract]
+        bool edit();
+
+        //InterestDL
+        List<Interest> GetIntr();
 
         //BlogDL
         [OperationContract]
-        bool UploadBlog(string name, string type, string writing);
+        bool UploadBlog(string name, string type, string writing, string writer);
         [OperationContract]
-        void EditBlog(string titl, string write);
+        void EditBlog(string titl, string write, string req);
         [OperationContract]
         Blog ReadBlog(string name);
+        [OperationContract]
+        void Deleteblog(Int32 index);
+        [OperationContract]
+        List<Blog> User_Blog(string writer);
+        [OperationContract]
+        List<Blog> UserInterestBlog(string user);
+        [OperationContract]
+        List<Blog> getBlog();
 
         //Admin
         [OperationContract]
@@ -81,6 +100,9 @@ namespace Blogging
         bool Reset(string nme, string code, string ncode, string con_code);
         [OperationContract]
         bool Logout_A();
+        [OperationContract]
+        Admin get_instance();
+
         // TODO: Add your service operations here
     }
 

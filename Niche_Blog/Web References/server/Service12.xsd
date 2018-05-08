@@ -2,7 +2,6 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:58818/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Blogging" />
   <xs:import schemaLocation="http://localhost:58818/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
-  <xs:import schemaLocation="http://localhost:58818/Service1.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="GetData">
     <xs:complexType>
       <xs:sequence>
@@ -123,7 +122,7 @@
   <xs:element name="userGenreResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="userGenreResult" nillable="true" type="q4:InterestDL" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="userGenreResult" nillable="true" type="q4:ArrayOfInterest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -136,7 +135,7 @@
         <xs:element minOccurs="0" name="s_ques" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="ans" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="gnder" nillable="true" type="xs:string" />
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="intrst" nillable="true" type="q5:ArrayOfstring" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="intrst" nillable="true" type="q5:ArrayOfInterest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -209,12 +208,40 @@
   </xs:element>
   <xs:element name="Delete">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGenre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usernme" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGenreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="getGenreResult" nillable="true" type="q7:ArrayOfInterest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="GetUserResult" nillable="true" type="q8:ArrayOfUser" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="title">
@@ -253,12 +280,37 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="author">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="authorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="authorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="edit">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="editResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="editResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UploadBlog">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="writing" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="writer" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -274,6 +326,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="titl" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="write" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="req" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -292,7 +345,59 @@
   <xs:element name="ReadBlogResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="ReadBlogResult" nillable="true" type="q7:Blog" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="ReadBlogResult" nillable="true" type="q9:Blog" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Deleteblog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteblogResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="User_Blog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="writer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="User_BlogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="User_BlogResult" nillable="true" type="q10:ArrayOfBlog" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserInterestBlog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserInterestBlogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="UserInterestBlogResult" nillable="true" type="q11:ArrayOfBlog" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBlog">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBlogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="getBlogResult" nillable="true" type="q12:ArrayOfBlog" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -361,6 +466,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Logout_AResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_instance">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_instanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Blogging" minOccurs="0" name="get_instanceResult" nillable="true" type="q13:Admin" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

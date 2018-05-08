@@ -105,6 +105,18 @@
   <wsdl:message name="IService1_Delete_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_getGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGenre" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGenreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_title_InputMessage">
     <wsdl:part name="parameters" element="tns:title" />
   </wsdl:message>
@@ -123,6 +135,18 @@
   <wsdl:message name="IService1_text_OutputMessage">
     <wsdl:part name="parameters" element="tns:textResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_author_InputMessage">
+    <wsdl:part name="parameters" element="tns:author" />
+  </wsdl:message>
+  <wsdl:message name="IService1_author_OutputMessage">
+    <wsdl:part name="parameters" element="tns:authorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_edit_InputMessage">
+    <wsdl:part name="parameters" element="tns:edit" />
+  </wsdl:message>
+  <wsdl:message name="IService1_edit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:editResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_UploadBlog_InputMessage">
     <wsdl:part name="parameters" element="tns:UploadBlog" />
   </wsdl:message>
@@ -140,6 +164,30 @@
   </wsdl:message>
   <wsdl:message name="IService1_ReadBlog_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReadBlogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Deleteblog_InputMessage">
+    <wsdl:part name="parameters" element="tns:Deleteblog" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Deleteblog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteblogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_User_Blog_InputMessage">
+    <wsdl:part name="parameters" element="tns:User_Blog" />
+  </wsdl:message>
+  <wsdl:message name="IService1_User_Blog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:User_BlogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserInterestBlog_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserInterestBlog" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserInterestBlog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserInterestBlogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getBlog_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBlog" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getBlog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBlogResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_securityCode_InputMessage">
     <wsdl:part name="parameters" element="tns:securityCode" />
@@ -170,6 +218,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_Logout_A_OutputMessage">
     <wsdl:part name="parameters" element="tns:Logout_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_get_instance_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_instance" />
+  </wsdl:message>
+  <wsdl:message name="IService1_get_instance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_instanceResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
@@ -236,6 +290,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete" message="tns:IService1_Delete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteResponse" message="tns:IService1_Delete_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getGenre" message="tns:IService1_getGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getGenreResponse" message="tns:IService1_getGenre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUser" message="tns:IService1_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserResponse" message="tns:IService1_GetUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="title">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/title" message="tns:IService1_title_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/titleResponse" message="tns:IService1_title_OutputMessage" />
@@ -248,6 +310,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/text" message="tns:IService1_text_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/textResponse" message="tns:IService1_text_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="author">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/author" message="tns:IService1_author_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/authorResponse" message="tns:IService1_author_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="edit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/edit" message="tns:IService1_edit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/editResponse" message="tns:IService1_edit_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UploadBlog">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UploadBlog" message="tns:IService1_UploadBlog_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UploadBlogResponse" message="tns:IService1_UploadBlog_OutputMessage" />
@@ -259,6 +329,22 @@
     <wsdl:operation name="ReadBlog">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ReadBlog" message="tns:IService1_ReadBlog_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ReadBlogResponse" message="tns:IService1_ReadBlog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Deleteblog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Deleteblog" message="tns:IService1_Deleteblog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteblogResponse" message="tns:IService1_Deleteblog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="User_Blog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/User_Blog" message="tns:IService1_User_Blog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/User_BlogResponse" message="tns:IService1_User_Blog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserInterestBlog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UserInterestBlog" message="tns:IService1_UserInterestBlog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UserInterestBlogResponse" message="tns:IService1_UserInterestBlog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBlog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getBlog" message="tns:IService1_getBlog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getBlogResponse" message="tns:IService1_getBlog_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="securityCode">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/securityCode" message="tns:IService1_securityCode_InputMessage" />
@@ -279,6 +365,10 @@
     <wsdl:operation name="Logout_A">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Logout_A" message="tns:IService1_Logout_A_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Logout_AResponse" message="tns:IService1_Logout_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_instance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/get_instance" message="tns:IService1_get_instance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/get_instanceResponse" message="tns:IService1_get_instance_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -427,6 +517,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getGenre">
+      <soap:operation soapAction="http://tempuri.org/IService1/getGenre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="title">
       <soap:operation soapAction="http://tempuri.org/IService1/title" style="document" />
       <wsdl:input>
@@ -454,6 +562,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="author">
+      <soap:operation soapAction="http://tempuri.org/IService1/author" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="edit">
+      <soap:operation soapAction="http://tempuri.org/IService1/edit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UploadBlog">
       <soap:operation soapAction="http://tempuri.org/IService1/UploadBlog" style="document" />
       <wsdl:input>
@@ -474,6 +600,42 @@
     </wsdl:operation>
     <wsdl:operation name="ReadBlog">
       <soap:operation soapAction="http://tempuri.org/IService1/ReadBlog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deleteblog">
+      <soap:operation soapAction="http://tempuri.org/IService1/Deleteblog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Blog">
+      <soap:operation soapAction="http://tempuri.org/IService1/User_Blog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserInterestBlog">
+      <soap:operation soapAction="http://tempuri.org/IService1/UserInterestBlog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlog">
+      <soap:operation soapAction="http://tempuri.org/IService1/getBlog" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -519,6 +681,15 @@
     </wsdl:operation>
     <wsdl:operation name="Logout_A">
       <soap:operation soapAction="http://tempuri.org/IService1/Logout_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_instance">
+      <soap:operation soapAction="http://tempuri.org/IService1/get_instance" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

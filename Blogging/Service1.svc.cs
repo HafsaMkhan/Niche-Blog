@@ -31,6 +31,7 @@ namespace Blogging
             return composite;
         }
 
+
         //User
         public string username()
         {
@@ -74,27 +75,24 @@ namespace Blogging
             Image s = U.img;
             return s;
         }
-        public InterestDL userGenre()
+        public List<Interest> userGenre()
         {
             User U = new User();
-            InterestDL s = U.userGenre;
+            List<Interest> s = U.userGenre;
             return s;
         }
 
         //UserDL
-        public bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, string[] intrst)
+        public bool AddUser(string user, string pwd, string cpwd, string s_ques, string ans, string gnder, Interest[] intrst)
         {
             UserDL D = new UserDL();
             bool a = D.AddUser(user, pwd, cpwd, s_ques, ans, gnder, intrst);
             return a;
         }
-        public void Delete()
+        public void Delete(Int32 index)
         {
             UserDL D = new UserDL();
-            D.Delete();
-            BlogDL B = new BlogDL();
-            B.Delete();
-
+            D.Delete(index);
         }
         public bool ResetPassword(string user, string pwd, string cpwd, string s_ques, string ans)
         {
@@ -108,17 +106,35 @@ namespace Blogging
             bool a = D.Login(user, pwd);
             return a;
         }
-        public bool SetImage(string user, Image imag)
+        public bool SetImage(string user, System.Drawing.Image imag)
         {
             UserDL U = new UserDL();
             bool s = U.SetImage(user, imag);
             return s;
         }
+        public List<Interest> getGenre(string usernme)
+        {
+            UserDL U = new UserDL();
+            List<Interest> s = U.getGenre(usernme);
+            return s;
+        }
+        //public Image getImage(string user)
+        //{
+        //    UserDL U = new UserDL();
+        //    Image s = U.getImage(user);
+        //    return s;
+        //}
         public bool Logout_U()
         {
             UserDL D = new UserDL();
             bool m = D.Logout_U();
             return m;
+        }
+        public List<User> GetUser()
+        {
+            UserDL U = new UserDL();
+            List<User> k = U.GetUser();
+            return k;
         }
 
         //Blog
@@ -140,18 +156,38 @@ namespace Blogging
             string m = B.text;
             return m;
         }
+        public string author()
+        {
+            Blog B = new Blog();
+            string m = B.author;
+            return m;
+        }
+        public bool edit()
+        {
+            Blog B = new Blog();
+            bool m = B.edit;
+            return m;
+        }
+
+        //InterestDL
+        public List<Interest> GetIntr()
+        {
+            InterestDL I = new InterestDL();
+            List<Interest> s = I.GetIntr();
+            return s;
+        }
 
         //BlogDL
-        public bool UploadBlog(string name, string type, string writing)
+        public bool UploadBlog(string name, string type, string writing, string writer)
         {
             BlogDL B = new BlogDL();
-            bool l = B.UploadBlog(name, type, writing);
+            bool l = B.UploadBlog(name, type, writing, writer);
             return l;
         }
-        public void EditBlog(string titl, string write)
+        public void EditBlog(string titl, string write, string req)
         {
             BlogDL B = new BlogDL();
-            B.EditBlog(titl, write);
+            B.EditBlog(titl, write, req);
         }
         public Blog ReadBlog(string name)
         {
@@ -159,8 +195,36 @@ namespace Blogging
             Blog bb = B.ReadBlog(name);
             return bb;
         }
+        public void Deleteblog(Int32 index)
+        {
+            BlogDL B = new BlogDL();
+            B.Deleteblog(index);
+        }
+        public List<Blog> User_Blog(string writer)
+        {
+            BlogDL B = new BlogDL();
+            List<Blog> k = B.User_Blog(writer);
+            return k;
+        }
+        public List<Blog> UserInterestBlog(string user)
+        {
+            BlogDL B = new BlogDL();
+            List<Blog> s = B.UserInterestBlog(user);
+            return s;
+        }
+        public List<Blog> getBlog()
+        {
+            BlogDL B = new BlogDL();
+            List<Blog> k = B.getBlog();
+            return k;
+        }
 
         //Admin
+        public Admin get_instance()
+        {
+            return Admin.get_instance();
+        }
+
         public string securityCode()
         {
             Admin A = Admin.get_instance();
@@ -173,6 +237,10 @@ namespace Blogging
             string v = A.name;
             return v;
         }
+
+        //AdminDL
+
+
         public bool Access(string nme, string code)
         {
             Admin A = Admin.get_instance();
@@ -188,8 +256,8 @@ namespace Blogging
         }
         public bool Logout_A()
         {
-            Admin A = Admin.get_instance();
-            bool m = A.Logout_A();
+            Admin D = Admin.get_instance();
+            bool m = D.Logout_A();
             return m;
         }
     }
