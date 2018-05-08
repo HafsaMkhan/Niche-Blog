@@ -47,6 +47,7 @@
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.lblShowUsername = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -145,7 +146,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtConfirmPassword.Size = new System.Drawing.Size(148, 20);
-            this.txtConfirmPassword.TabIndex = 52;
+            this.txtConfirmPassword.TabIndex = 10;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // txtPasswordR
@@ -159,8 +160,9 @@
             this.txtPasswordR.Name = "txtPasswordR";
             this.txtPasswordR.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtPasswordR.Size = new System.Drawing.Size(148, 20);
-            this.txtPasswordR.TabIndex = 53;
+            this.txtPasswordR.TabIndex = 9;
             this.txtPasswordR.UseSystemPasswordChar = true;
+            this.txtPasswordR.TextChanged += new System.EventHandler(this.txtPasswordR_TextChanged);
             // 
             // SecretQuestion
             // 
@@ -179,7 +181,8 @@
             this.SecretQuestion.Name = "SecretQuestion";
             this.SecretQuestion.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.SecretQuestion.Size = new System.Drawing.Size(180, 21);
-            this.SecretQuestion.TabIndex = 62;
+            this.SecretQuestion.TabIndex = 7;
+            this.SecretQuestion.SelectedIndexChanged += new System.EventHandler(this.SecretQuestion_SelectedIndexChanged);
             // 
             // txtAnswer
             // 
@@ -192,7 +195,8 @@
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtAnswer.Size = new System.Drawing.Size(148, 20);
-            this.txtAnswer.TabIndex = 61;
+            this.txtAnswer.TabIndex = 8;
+            this.txtAnswer.TextChanged += new System.EventHandler(this.txtAnswer_TextChanged);
             // 
             // txtUsernameR
             // 
@@ -206,7 +210,7 @@
             this.txtUsernameR.Name = "txtUsernameR";
             this.txtUsernameR.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtUsernameR.Size = new System.Drawing.Size(148, 22);
-            this.txtUsernameR.TabIndex = 71;
+            this.txtUsernameR.TabIndex = 6;
             // 
             // button1
             // 
@@ -217,7 +221,7 @@
             this.button1.Location = new System.Drawing.Point(517, 405);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 33);
-            this.button1.TabIndex = 63;
+            this.button1.TabIndex = 11;
             this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -243,10 +247,10 @@
             this.linkLabel1.DisabledLinkColor = System.Drawing.Color.Navy;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Purple;
-            this.linkLabel1.Location = new System.Drawing.Point(387, 117);
+            this.linkLabel1.Location = new System.Drawing.Point(369, 117);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(52, 20);
-            this.linkLabel1.TabIndex = 65;
+            this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Home";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -259,7 +263,7 @@
             this.linkLabel2.DisabledLinkColor = System.Drawing.Color.Navy;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.LinkColor = System.Drawing.Color.Purple;
-            this.linkLabel2.Location = new System.Drawing.Point(473, 124);
+            this.linkLabel2.Location = new System.Drawing.Point(455, 124);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(0, 20);
             this.linkLabel2.TabIndex = 66;
@@ -273,12 +277,13 @@
             this.linkLabel3.DisabledLinkColor = System.Drawing.Color.Navy;
             this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel3.LinkColor = System.Drawing.Color.Purple;
-            this.linkLabel3.Location = new System.Drawing.Point(535, 117);
+            this.linkLabel3.Location = new System.Drawing.Point(517, 117);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(96, 20);
-            this.linkLabel3.TabIndex = 67;
+            this.linkLabel3.Size = new System.Drawing.Size(114, 20);
+            this.linkLabel3.TabIndex = 3;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Upload Blog";
+            this.linkLabel3.Text = "Uploaded Blog";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // linkLabel4
             // 
@@ -292,7 +297,7 @@
             this.linkLabel4.Location = new System.Drawing.Point(637, 117);
             this.linkLabel4.Name = "linkLabel4";
             this.linkLabel4.Size = new System.Drawing.Size(125, 20);
-            this.linkLabel4.TabIndex = 68;
+            this.linkLabel4.TabIndex = 4;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "Reset Password";
             this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
@@ -306,12 +311,13 @@
             this.linkLabel5.DisabledLinkColor = System.Drawing.Color.Navy;
             this.linkLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel5.LinkColor = System.Drawing.Color.Purple;
-            this.linkLabel5.Location = new System.Drawing.Point(445, 117);
+            this.linkLabel5.Location = new System.Drawing.Point(427, 117);
             this.linkLabel5.Name = "linkLabel5";
             this.linkLabel5.Size = new System.Drawing.Size(84, 20);
-            this.linkLabel5.TabIndex = 69;
+            this.linkLabel5.TabIndex = 2;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "Read Blog";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
             // linkLabel6
             // 
@@ -325,10 +331,21 @@
             this.linkLabel6.Location = new System.Drawing.Point(768, 117);
             this.linkLabel6.Name = "linkLabel6";
             this.linkLabel6.Size = new System.Drawing.Size(59, 20);
-            this.linkLabel6.TabIndex = 70;
+            this.linkLabel6.TabIndex = 5;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Text = "Logout";
             this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            // 
+            // lblShowUsername
+            // 
+            this.lblShowUsername.AutoSize = true;
+            this.lblShowUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblShowUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowUsername.ForeColor = System.Drawing.Color.Indigo;
+            this.lblShowUsername.Location = new System.Drawing.Point(45, 130);
+            this.lblShowUsername.Name = "lblShowUsername";
+            this.lblShowUsername.Size = new System.Drawing.Size(0, 20);
+            this.lblShowUsername.TabIndex = 73;
             // 
             // frmForgetPassword
             // 
@@ -337,7 +354,8 @@
             this.BackColor = System.Drawing.Color.Bisque;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(861, 450);
+            this.ClientSize = new System.Drawing.Size(885, 500);
+            this.Controls.Add(this.lblShowUsername);
             this.Controls.Add(label3);
             this.Controls.Add(this.txtUsernameR);
             this.Controls.Add(this.linkLabel6);
@@ -357,9 +375,11 @@
             this.Controls.Add(this.txtPasswordR);
             this.Controls.Add(this.txtConfirmPassword);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmForgetPassword";
             this.Text = "frmForgetPassword";
+            this.Load += new System.EventHandler(this.frmForgetPassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,5 +400,6 @@
         private System.Windows.Forms.ComboBox SecretQuestion;
         private System.Windows.Forms.TextBox txtAnswer;
         private System.Windows.Forms.TextBox txtUsernameR;
+        private System.Windows.Forms.Label lblShowUsername;
     }
 }

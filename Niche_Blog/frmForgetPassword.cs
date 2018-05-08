@@ -40,15 +40,25 @@ namespace Niche_Blog
                 if (txtPasswordR.Text == txtConfirmPassword.Text)
                 {
                     MessageBox.Show("Succesfully! Password Reset.");
+                    txtAnswer.Text = "";
+                    txtConfirmPassword.Text = "";
+                    txtPasswordR.Text = "";
+                    txtUsernameR.Text = "";
                 }
                 else
                 {
                     MessageBox.Show("Password does not match.");
+                    txtConfirmPassword.Text = "";
+                    txtPasswordR.Text = "";
                 }
             }
             else
             {
                 MessageBox.Show("Incorrect information.");
+                txtAnswer.Text = "";
+                txtConfirmPassword.Text = "";
+                txtPasswordR.Text = "";
+                txtUsernameR.Text = "";
             }
         }
 
@@ -66,12 +76,47 @@ namespace Niche_Blog
             fp.Show();
         }
 
+        private void frmForgetPassword_Load(object sender, EventArgs e)
+        {
+            lblShowUsername.Text = MyUtility.loginUserName;
+        }
+
+        private void txtAnswer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SecretQuestion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPasswordR_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MyUtility.loginUserName = "";
             this.Hide();
+            MyUtility.loginUserDp = null;
+            MyUtility.loginUserName = "";
             Registration_Login rl = new Registration_Login();
             rl.Show();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            UploadUserBlog ub = new UploadUserBlog();
+            ub.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            ReadUserBlog rb = new ReadUserBlog();
+            rb.Show();
         }
     }
 }

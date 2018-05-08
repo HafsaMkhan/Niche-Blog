@@ -692,6 +692,13 @@ namespace Niche_Blog
             dataAdminUserData.AutoGenerateColumns = false;
             dataAdminBlogData.AutoGenerateColumns = false;
 
+            //Blog Record Gird Display
+            server.Service1 ser = new server.Service1();
+            list = ser.getBlog().ToList<server.Blog>();
+            BindingSource a = new BindingSource();
+            a.DataSource = list;
+            dataAdminBlogData.DataSource = a;
+
             //User Data Display
             server.Service1 server = new server.Service1();
             List<server.User> list1 = server.GetUser().ToList<server.User>();
@@ -702,7 +709,25 @@ namespace Niche_Blog
 
         private void cmdAdd_Click(object sender, EventArgs e)
         {
-            
+            bool found, isfound;
+            server.Service1 server = new server.Service1();
+            server.UploadBlog(txtTitle.Text, txtType.Text, txtDetails.Text, "admin@123", out found, out isfound);
+            if(txtTitle.Text=="" || txtType.Text == "" || txtDetails.Text == "")
+            {
+                MessageBox.Show("Invalid information!");
+            }
+            if (found==true & isfound == true)
+            {
+                txtDetails.Text = "";
+                txtType.Text = "";
+                txtTitle.Text = "";
+                MessageBox.Show("Blog has been uploaded successfully!");
+            }
+            else
+            {
+                txtTitle.Text = "";
+                MessageBox.Show("Sorry! Blog hasn't uploaded.");
+            }
         }
 
         private void cmdDeleteUser_Click(object sender, EventArgs e)
@@ -718,12 +743,22 @@ namespace Niche_Blog
 
         private void cmdDeleteBlog_Click(object sender, EventArgs e)
         {
-
+            foreach(DataGridViewRow item in this.dataAdminBlogData.SelectedRows)
+            {
+                Int32 inx = item.Index;
+                server.Service1 server = new server.Service1();
+                server.Deleteblog(inx, true);
+                dataAdminBlogData.Rows.RemoveAt(item.Index);
+            }
         }
 
         private void dataAdminBlogData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-        
+            dataAdminBlogData.MultiSelect = false;
+            server.Blog blog = list[e.RowIndex];
+            MyUtility.curr_Blog_Title = blog.title;
+            ViewBlogE vb = new ViewBlogE();
+            vb.Show();
         }
 
         private void tabuser_data_Click(object sender, EventArgs e)
