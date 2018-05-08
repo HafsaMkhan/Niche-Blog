@@ -77,7 +77,7 @@ namespace Blogging
         [OperationContract]
         bool UploadBlog(string name, string type, string writing, string writer);
         [OperationContract]
-        void EditBlog(string titl, string write, string req);
+        bool EditBlog(string titl, string write, string req);
         [OperationContract]
         Blog ReadBlog(string name);
         [OperationContract]

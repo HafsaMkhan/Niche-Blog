@@ -53,6 +53,12 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditBlog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBlog.Designer.cs">
+      <DependentUpon>EditBlog.cs</DependentUpon>
+    </Compile>
     <Compile Include="forgetUserPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </Compile>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBlog.resx">
+      <DependentUpon>EditBlog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forgetUserPass.resx">
       <DependentUpon>forgetUserPass.cs</DependentUpon>

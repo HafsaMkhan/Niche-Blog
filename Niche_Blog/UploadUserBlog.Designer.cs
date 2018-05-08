@@ -45,12 +45,12 @@
             this.lnkHome = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataReadBlog = new System.Windows.Forms.DataGridView();
+            this.cmdEdit = new System.Windows.Forms.Button();
+            this.blogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check_Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.blogBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataReadBlog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -164,8 +164,8 @@
             // 
             // dataReadBlog
             // 
+            this.dataReadBlog.AllowDrop = true;
             this.dataReadBlog.AllowUserToAddRows = false;
-            this.dataReadBlog.AllowUserToDeleteRows = false;
             this.dataReadBlog.AllowUserToResizeColumns = false;
             this.dataReadBlog.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,13 +202,29 @@
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Indigo;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Teal;
             this.dataReadBlog.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataReadBlog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataReadBlog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataReadBlog.ShowCellToolTips = false;
             this.dataReadBlog.ShowEditingIcon = false;
             this.dataReadBlog.Size = new System.Drawing.Size(721, 326);
             this.dataReadBlog.TabIndex = 102;
             this.dataReadBlog.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataReadBlog_CellContentClick);
             this.dataReadBlog.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataReadBlog_CellDoubleClick);
+            // 
+            // cmdEdit
+            // 
+            this.cmdEdit.BackColor = System.Drawing.Color.SeaShell;
+            this.cmdEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEdit.Location = new System.Drawing.Point(661, 502);
+            this.cmdEdit.Name = "cmdEdit";
+            this.cmdEdit.Size = new System.Drawing.Size(124, 34);
+            this.cmdEdit.TabIndex = 103;
+            this.cmdEdit.Text = "Edit";
+            this.cmdEdit.UseVisualStyleBackColor = false;
+            this.cmdEdit.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // blogBindingSource
+            // 
+            this.blogBindingSource.DataSource = typeof(Niche_Blog.server.Blog);
             // 
             // titleDataGridViewTextBoxColumn
             // 
@@ -221,6 +237,7 @@
             this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
             this.titleDataGridViewTextBoxColumn.MinimumWidth = 250;
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
             this.titleDataGridViewTextBoxColumn.Width = 250;
             // 
             // genreDataGridViewTextBoxColumn
@@ -235,6 +252,7 @@
             this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
             this.genreDataGridViewTextBoxColumn.MinimumWidth = 200;
             this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
+            this.genreDataGridViewTextBoxColumn.ReadOnly = true;
             this.genreDataGridViewTextBoxColumn.Width = 200;
             // 
             // authorDataGridViewTextBoxColumn
@@ -249,6 +267,7 @@
             this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
             this.authorDataGridViewTextBoxColumn.MinimumWidth = 200;
             this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
+            this.authorDataGridViewTextBoxColumn.ReadOnly = true;
             this.authorDataGridViewTextBoxColumn.Width = 200;
             // 
             // Check_Edit
@@ -264,27 +283,13 @@
             this.Check_Edit.HeaderText = "Edit";
             this.Check_Edit.Name = "Check_Edit";
             // 
-            // blogBindingSource
-            // 
-            this.blogBindingSource.DataSource = typeof(Niche_Blog.server.Blog);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(661, 514);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 22);
-            this.button1.TabIndex = 103;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // UploadUserBlog
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(833, 548);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cmdEdit);
             this.Controls.Add(this.dataReadBlog);
             this.Controls.Add(this.lblShowUser);
             this.Controls.Add(this.lnkLogout);
@@ -318,10 +323,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataReadBlog;
         private System.Windows.Forms.BindingSource blogBindingSource;
+        private System.Windows.Forms.Button cmdEdit;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn authorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Check_Edit;
-        private System.Windows.Forms.Button button1;
     }
 }

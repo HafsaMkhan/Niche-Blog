@@ -974,11 +974,13 @@ namespace Niche_Blog.server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/EditBlog", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void EditBlog([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string titl, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string write, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string req) {
-            this.Invoke("EditBlog", new object[] {
+        public void EditBlog([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string titl, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string write, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string req, out bool EditBlogResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool EditBlogResultSpecified) {
+            object[] results = this.Invoke("EditBlog", new object[] {
                         titl,
                         write,
                         req});
+            EditBlogResult = ((bool)(results[0]));
+            EditBlogResultSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
@@ -1000,7 +1002,7 @@ namespace Niche_Blog.server {
         private void OnEditBlogOperationCompleted(object arg) {
             if ((this.EditBlogCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.EditBlogCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.EditBlogCompleted(this, new EditBlogCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2353,7 +2355,37 @@ namespace Niche_Blog.server {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    public delegate void EditBlogCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void EditBlogCompletedEventHandler(object sender, EditBlogCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class EditBlogCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal EditBlogCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool EditBlogResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool EditBlogResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]

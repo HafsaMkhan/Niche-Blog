@@ -184,10 +184,11 @@ namespace Blogging
             bool l = B.UploadBlog(name, type, writing, writer);
             return l;
         }
-        public void EditBlog(string titl, string write, string req)
+        public bool EditBlog(string titl, string write, string req)
         {
             BlogDL B = new BlogDL();
-            B.EditBlog(titl, write, req);
+            bool s=B.EditBlog(titl, write, req);
+            return s;
         }
         public Blog ReadBlog(string name)
         {

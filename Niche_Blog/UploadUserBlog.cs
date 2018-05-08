@@ -94,7 +94,7 @@ namespace Niche_Blog
         private void button1_Click(object sender, EventArgs e)
         {
             bool isfound=false;
-            int i = 0;
+            //int i = 0;
             server.Service1 ser = new server.Service1();
             foreach(DataGridViewRow row in dataReadBlog.Rows)
             {
@@ -115,7 +115,7 @@ namespace Niche_Blog
 
         private void dataReadBlog_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            dataReadBlog.MultiSelect = false;
         }
     }
 }
