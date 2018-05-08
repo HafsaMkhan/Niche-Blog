@@ -37,3 +37,8 @@ C:\Users\Samee\Desktop\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.UploadUserBlog
 C:\Users\Samee\Desktop\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.UploadBlog.resources
 C:\Users\Samee\Desktop\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.ViewBlogE.resources
 C:\Users\Samee\Desktop\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.forgetUserPass.resources
+C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.forgetUserPass.resources
+C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.ViewBlogE.resources
+C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.ReadUserBlog.resources
+C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.UploadBlog.resources
+C:\Users\Samee\OneDrive\Documents\Niche_Blog\Niche_Blog\obj\Debug\Niche_Blog.UploadUserBlog.resources

@@ -39,13 +39,20 @@ namespace Blogging
 
         public void Deleteblog(Int32 index)
         {
-            
+            LL.RemoveAt(index);
         }
 
         public bool EditBlog(string titl, string write, string req)
         {
             bool edited = false;
-
+            foreach (Blog b in BlogDL.LL)
+            {
+                if (b.title.ToLower() == titl.ToLower() & (b.author.ToLower() == req.ToLower() || b.author == "admin@123"))
+                {
+                    b.text = write;
+                    edited = true;
+                }
+            }
             return edited;
 
         }
@@ -53,14 +60,37 @@ namespace Blogging
         public Blog ReadBlog(string name)
         {
             Blog ab = null;
-
+            foreach(Blog b in BlogDL.LL)
+            {
+                if(b.title == name)
+                {
+                    return b;
+                }
+            }
             return ab;
         }
 
         public List<Blog> UserInterestBlog(string user)
         {
             List<Blog> Y = new List<Blog>();
-            
+            Interest gen = new Interest();
+            foreach (User u in UserDL.users)
+            {
+                if (u.username.ToLower() == user.ToLower()) 
+                {
+                    foreach (Interest t in u.userGenre) 
+                    {
+                        foreach (Blog b in LL)
+                        {
+                            gen.type = b.genre;
+                            if (t.type== gen.type)
+                            {
+                                Y.Add(b);
+                            }
+                        }
+                    }
+                }
+            }
             return Y;
         }
 
