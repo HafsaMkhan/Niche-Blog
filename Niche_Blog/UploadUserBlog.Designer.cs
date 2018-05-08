@@ -45,11 +45,12 @@
             this.lnkHome = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataReadBlog = new System.Windows.Forms.DataGridView();
-            this.blogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check_Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.blogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataReadBlog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -208,11 +209,6 @@
             this.dataReadBlog.TabIndex = 102;
             this.dataReadBlog.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataReadBlog_CellContentClick);
             this.dataReadBlog.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataReadBlog_CellDoubleClick);
-            this.dataReadBlog.DoubleClick += new System.EventHandler(this.dataReadBlog_DoubleClick);
-            // 
-            // blogBindingSource
-            // 
-            this.blogBindingSource.DataSource = typeof(Niche_Blog.server.Blog);
             // 
             // titleDataGridViewTextBoxColumn
             // 
@@ -268,12 +264,27 @@
             this.Check_Edit.HeaderText = "Edit";
             this.Check_Edit.Name = "Check_Edit";
             // 
+            // blogBindingSource
+            // 
+            this.blogBindingSource.DataSource = typeof(Niche_Blog.server.Blog);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(661, 514);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 22);
+            this.button1.TabIndex = 103;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UploadUserBlog
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(833, 548);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataReadBlog);
             this.Controls.Add(this.lblShowUser);
             this.Controls.Add(this.lnkLogout);
@@ -311,5 +322,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn authorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Check_Edit;
+        private System.Windows.Forms.Button button1;
     }
 }

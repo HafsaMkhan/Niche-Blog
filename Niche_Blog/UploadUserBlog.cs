@@ -69,32 +69,15 @@ namespace Niche_Blog
             this.Hide();
             this.Show();
         }
-
-        private void dataReadBlog_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (Convert.ToBoolean(dataReadBlog.Rows[e.RowIndex].Cells[3]))
-            {
-                this.Hide();
-                UploadBlog ub = new UploadBlog();
-                ub.Show();
-
-            }
-        }
-
-        private void dataReadBlog_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void dataReadBlog_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             dataReadBlog.AutoGenerateColumns = false;
+
             server.Blog blg = lst[e.RowIndex];
             MyUtility.curr_Blog_Title = blg.title;
             ViewBlogE rb = new ViewBlogE();
             rb.Show();
-
-
         }
 
         private void cmdEditBlog_Click(object sender, EventArgs e)
@@ -106,6 +89,33 @@ namespace Niche_Blog
             //    server.Service1 server = new server.Service1();
                 
             //}
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bool isfound=false;
+            int i = 0;
+            server.Service1 ser = new server.Service1();
+            foreach(DataGridViewRow row in dataReadBlog.Rows)
+            {
+                if(Convert.ToBoolean(row.Cells[3].Value))
+                {
+                    server.Blog s = lst[row.Index];
+                    isfound = true;
+                    MyUtility.curr_Blog_Title = s.title;
+                    UploadBlog ub = new UploadBlog();
+                    ub.Show();
+                }
+            }
+            if (isfound == false)
+            {
+                MessageBox.Show("Please select any value");
+            }
+        }
+
+        private void dataReadBlog_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
