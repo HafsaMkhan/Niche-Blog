@@ -45,12 +45,12 @@
             this.lnkHome = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataReadBlog = new System.Windows.Forms.DataGridView();
-            this.cmdEdit = new System.Windows.Forms.Button();
-            this.blogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check_Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.blogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmdEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataReadBlog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -202,29 +202,13 @@
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Indigo;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Teal;
             this.dataReadBlog.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataReadBlog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataReadBlog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataReadBlog.ShowCellToolTips = false;
             this.dataReadBlog.ShowEditingIcon = false;
             this.dataReadBlog.Size = new System.Drawing.Size(721, 326);
             this.dataReadBlog.TabIndex = 102;
             this.dataReadBlog.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataReadBlog_CellContentClick);
             this.dataReadBlog.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataReadBlog_CellDoubleClick);
-            // 
-            // cmdEdit
-            // 
-            this.cmdEdit.BackColor = System.Drawing.Color.SeaShell;
-            this.cmdEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEdit.Location = new System.Drawing.Point(661, 502);
-            this.cmdEdit.Name = "cmdEdit";
-            this.cmdEdit.Size = new System.Drawing.Size(124, 34);
-            this.cmdEdit.TabIndex = 103;
-            this.cmdEdit.Text = "Edit";
-            this.cmdEdit.UseVisualStyleBackColor = false;
-            this.cmdEdit.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // blogBindingSource
-            // 
-            this.blogBindingSource.DataSource = typeof(Niche_Blog.server.Blog);
             // 
             // titleDataGridViewTextBoxColumn
             // 
@@ -282,6 +266,22 @@
             this.Check_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Check_Edit.HeaderText = "Edit";
             this.Check_Edit.Name = "Check_Edit";
+            // 
+            // blogBindingSource
+            // 
+            this.blogBindingSource.DataSource = typeof(Niche_Blog.server.Blog);
+            // 
+            // cmdEdit
+            // 
+            this.cmdEdit.BackColor = System.Drawing.Color.SeaShell;
+            this.cmdEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEdit.Location = new System.Drawing.Point(661, 502);
+            this.cmdEdit.Name = "cmdEdit";
+            this.cmdEdit.Size = new System.Drawing.Size(124, 34);
+            this.cmdEdit.TabIndex = 103;
+            this.cmdEdit.Text = "Edit";
+            this.cmdEdit.UseVisualStyleBackColor = false;
+            this.cmdEdit.Click += new System.EventHandler(this.button1_Click);
             // 
             // UploadUserBlog
             // 

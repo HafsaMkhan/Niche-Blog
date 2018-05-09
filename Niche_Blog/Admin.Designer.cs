@@ -72,6 +72,7 @@
             // 
             // txtAdmin_Titlle
             // 
+            this.txtAdmin_Titlle.ForeColor = System.Drawing.Color.Indigo;
             this.txtAdmin_Titlle.Location = new System.Drawing.Point(412, 231);
             this.txtAdmin_Titlle.Name = "txtAdmin_Titlle";
             this.txtAdmin_Titlle.Size = new System.Drawing.Size(138, 22);

@@ -45,9 +45,8 @@ namespace Niche_Blog
         {
            // bool val, found;
             Image imge = Image.FromStream(openFileDialog1.OpenFile());
-            pictureBox.Image = imge;
             MyUtility.loginUserDp = imge;
-            
+            pictureBox.Image = MyUtility.loginUserDp;
             server.Service1 server = new server.Service1();
             //server.SetImage(MyUtility.loginUserName, pictureBox.Image, out val, out found);
         }

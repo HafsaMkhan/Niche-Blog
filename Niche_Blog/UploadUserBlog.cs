@@ -103,7 +103,7 @@ namespace Niche_Blog
                     server.Blog s = lst[row.Index];
                     isfound = true;
                     MyUtility.curr_Blog_Title = s.title;
-                    UploadBlog ub = new UploadBlog();
+                    EditBlog ub = new EditBlog();
                     ub.Show();
                 }
             }
