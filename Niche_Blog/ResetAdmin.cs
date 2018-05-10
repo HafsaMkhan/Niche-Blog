@@ -30,7 +30,6 @@ namespace Niche_Blog
         private Button cmdDeleteUser;
         private DataGridView dataAdminUserData;
         private Button cmdDeleteBlog;
-        private DataGridView dataAdminBlogData;
         private Button cmdAdd;
         private RichTextBox txtDetails;
         private Label label7;
@@ -46,11 +45,12 @@ namespace Niche_Blog
         private BindingSource userBindingSource;
         private Button button2;
         private DataGridViewCheckBoxColumn editDataGridViewCheckBoxColumn;
+        private DataGridView dataAdminBlogData;
         private BindingSource blogBindingSource;
         private DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn authorDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn edit;
+        private DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private Label label1;
 
         public ResetAdmin()
@@ -76,9 +76,15 @@ namespace Niche_Blog
             this.tabuser_data = new System.Windows.Forms.TabPage();
             this.cmdDeleteUser = new System.Windows.Forms.Button();
             this.dataAdminUserData = new System.Windows.Forms.DataGridView();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.secretQuestionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.answerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabblog_record = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.cmdDeleteBlog = new System.Windows.Forms.Button();
-            this.dataAdminBlogData = new System.Windows.Forms.DataGridView();
             this.tabreset_code = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAdmin = new System.Windows.Forms.TextBox();
@@ -97,26 +103,20 @@ namespace Niche_Blog
             this.txtType = new System.Windows.Forms.ComboBox();
             this.cmdAdd = new System.Windows.Forms.Button();
             this.lnkAdminLogout = new System.Windows.Forms.LinkLabel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.secretQuestionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.answerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataAdminBlogData = new System.Windows.Forms.DataGridView();
             this.blogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabUserData.SuspendLayout();
             this.tabuser_data.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataAdminUserData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.tabblog_record.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataAdminBlogData)).BeginInit();
             this.tabreset_code.SuspendLayout();
             this.tabadd_blog.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataAdminBlogData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,14 +212,81 @@ namespace Niche_Blog
             this.dataAdminUserData.Size = new System.Drawing.Size(693, 301);
             this.dataAdminUserData.TabIndex = 0;
             // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.usernameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 250;
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.genderDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            this.genderDataGridViewTextBoxColumn.MinimumWidth = 100;
+            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            // 
+            // secretQuestionDataGridViewTextBoxColumn
+            // 
+            this.secretQuestionDataGridViewTextBoxColumn.DataPropertyName = "secretQuestion";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.secretQuestionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.secretQuestionDataGridViewTextBoxColumn.HeaderText = "Secret Question";
+            this.secretQuestionDataGridViewTextBoxColumn.MinimumWidth = 200;
+            this.secretQuestionDataGridViewTextBoxColumn.Name = "secretQuestionDataGridViewTextBoxColumn";
+            this.secretQuestionDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // answerDataGridViewTextBoxColumn
+            // 
+            this.answerDataGridViewTextBoxColumn.DataPropertyName = "answer";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.answerDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.answerDataGridViewTextBoxColumn.HeaderText = "Answer";
+            this.answerDataGridViewTextBoxColumn.MinimumWidth = 150;
+            this.answerDataGridViewTextBoxColumn.Name = "answerDataGridViewTextBoxColumn";
+            this.answerDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // imgDataGridViewTextBoxColumn
+            // 
+            this.imgDataGridViewTextBoxColumn.DataPropertyName = "img";
+            this.imgDataGridViewTextBoxColumn.HeaderText = "User DP";
+            this.imgDataGridViewTextBoxColumn.MinimumWidth = 100;
+            this.imgDataGridViewTextBoxColumn.Name = "imgDataGridViewTextBoxColumn";
+            this.imgDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.imgDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Niche_Blog.server.User);
+            // 
             // tabblog_record
             // 
             this.tabblog_record.AutoScroll = true;
             this.tabblog_record.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabblog_record.BackgroundImage")));
             this.tabblog_record.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabblog_record.Controls.Add(this.dataAdminBlogData);
             this.tabblog_record.Controls.Add(this.button2);
             this.tabblog_record.Controls.Add(this.cmdDeleteBlog);
-            this.tabblog_record.Controls.Add(this.dataAdminBlogData);
             this.tabblog_record.ForeColor = System.Drawing.Color.Indigo;
             this.tabblog_record.Location = new System.Drawing.Point(4, 25);
             this.tabblog_record.Name = "tabblog_record";
@@ -229,6 +296,18 @@ namespace Niche_Blog
             this.tabblog_record.Text = "Blog Record";
             this.tabblog_record.UseVisualStyleBackColor = true;
             this.tabblog_record.Click += new System.EventHandler(this.tabblog_record_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.SeaShell;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(442, 346);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(133, 27);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Edit";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cmdDeleteBlog
             // 
@@ -241,34 +320,6 @@ namespace Niche_Blog
             this.cmdDeleteBlog.Text = "Delete";
             this.cmdDeleteBlog.UseVisualStyleBackColor = false;
             this.cmdDeleteBlog.Click += new System.EventHandler(this.cmdDeleteBlog_Click);
-            // 
-            // dataAdminBlogData
-            // 
-            this.dataAdminBlogData.AllowDrop = true;
-            this.dataAdminBlogData.AllowUserToAddRows = false;
-            this.dataAdminBlogData.AllowUserToDeleteRows = false;
-            this.dataAdminBlogData.AllowUserToResizeColumns = false;
-            this.dataAdminBlogData.AllowUserToResizeRows = false;
-            this.dataAdminBlogData.AutoGenerateColumns = false;
-            this.dataAdminBlogData.BackgroundColor = System.Drawing.Color.SeaShell;
-            this.dataAdminBlogData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataAdminBlogData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.titleDataGridViewTextBoxColumn,
-            this.genreDataGridViewTextBoxColumn,
-            this.authorDataGridViewTextBoxColumn,
-            this.edit});
-            this.dataAdminBlogData.DataSource = this.blogBindingSource;
-            this.dataAdminBlogData.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataAdminBlogData.Location = new System.Drawing.Point(48, 30);
-            this.dataAdminBlogData.Name = "dataAdminBlogData";
-            this.dataAdminBlogData.RowHeadersVisible = false;
-            this.dataAdminBlogData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataAdminBlogData.ShowCellToolTips = false;
-            this.dataAdminBlogData.ShowEditingIcon = false;
-            this.dataAdminBlogData.Size = new System.Drawing.Size(665, 300);
-            this.dataAdminBlogData.TabIndex = 1;
-            this.dataAdminBlogData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataAdminBlogData_CellContentClick);
-            this.dataAdminBlogData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataAdminBlogData_CellDoubleClick);
             // 
             // tabreset_code
             // 
@@ -399,10 +450,10 @@ namespace Niche_Blog
             this.tabadd_blog.Controls.Add(this.txtType);
             this.tabadd_blog.Controls.Add(this.cmdAdd);
             this.tabadd_blog.ForeColor = System.Drawing.Color.Indigo;
-            this.tabadd_blog.Location = new System.Drawing.Point(4, 22);
+            this.tabadd_blog.Location = new System.Drawing.Point(4, 25);
             this.tabadd_blog.Name = "tabadd_blog";
             this.tabadd_blog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabadd_blog.Size = new System.Drawing.Size(740, 407);
+            this.tabadd_blog.Size = new System.Drawing.Size(740, 404);
             this.tabadd_blog.TabIndex = 3;
             this.tabadd_blog.Text = "Add Blog";
             this.tabadd_blog.UseVisualStyleBackColor = true;
@@ -489,143 +540,90 @@ namespace Niche_Blog
             this.lnkAdminLogout.Text = "Logout";
             this.lnkAdminLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAdminLogout_LinkClicked);
             // 
-            // button2
+            // dataAdminBlogData
             // 
-            this.button2.BackColor = System.Drawing.Color.SeaShell;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(442, 346);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 27);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usernameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 250;
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.genderDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
-            this.genderDataGridViewTextBoxColumn.MinimumWidth = 100;
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            // 
-            // secretQuestionDataGridViewTextBoxColumn
-            // 
-            this.secretQuestionDataGridViewTextBoxColumn.DataPropertyName = "secretQuestion";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.secretQuestionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.secretQuestionDataGridViewTextBoxColumn.HeaderText = "Secret Question";
-            this.secretQuestionDataGridViewTextBoxColumn.MinimumWidth = 200;
-            this.secretQuestionDataGridViewTextBoxColumn.Name = "secretQuestionDataGridViewTextBoxColumn";
-            this.secretQuestionDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // answerDataGridViewTextBoxColumn
-            // 
-            this.answerDataGridViewTextBoxColumn.DataPropertyName = "answer";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.answerDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.answerDataGridViewTextBoxColumn.HeaderText = "Answer";
-            this.answerDataGridViewTextBoxColumn.MinimumWidth = 150;
-            this.answerDataGridViewTextBoxColumn.Name = "answerDataGridViewTextBoxColumn";
-            this.answerDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // imgDataGridViewTextBoxColumn
-            // 
-            this.imgDataGridViewTextBoxColumn.DataPropertyName = "img";
-            this.imgDataGridViewTextBoxColumn.HeaderText = "User DP";
-            this.imgDataGridViewTextBoxColumn.MinimumWidth = 100;
-            this.imgDataGridViewTextBoxColumn.Name = "imgDataGridViewTextBoxColumn";
-            this.imgDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.imgDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(Niche_Blog.server.User);
-            // 
-            // blogBindingSource
-            // 
-            this.blogBindingSource.DataSource = typeof(Niche_Blog.server.Blog);
-            this.blogBindingSource.CurrentChanged += new System.EventHandler(this.blogBindingSource_CurrentChanged);
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
+            this.dataAdminBlogData.AllowUserToAddRows = false;
+            this.dataAdminBlogData.AllowUserToDeleteRows = false;
+            this.dataAdminBlogData.AllowUserToResizeColumns = false;
+            this.dataAdminBlogData.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Purple;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Teal;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.titleDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn.MinimumWidth = 250;
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.Width = 250;
+            this.dataAdminBlogData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataAdminBlogData.AutoGenerateColumns = false;
+            this.dataAdminBlogData.BackgroundColor = System.Drawing.Color.SeaShell;
+            this.dataAdminBlogData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataAdminBlogData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.titleDataGridViewTextBoxColumn,
+            this.genreDataGridViewTextBoxColumn,
+            this.authorDataGridViewTextBoxColumn,
+            this.dataGridViewCheckBoxColumn1});
+            this.dataAdminBlogData.DataSource = this.blogBindingSource;
+            this.dataAdminBlogData.Location = new System.Drawing.Point(47, 38);
+            this.dataAdminBlogData.Name = "dataAdminBlogData";
+            this.dataAdminBlogData.ReadOnly = true;
+            this.dataAdminBlogData.RowHeadersVisible = false;
+            this.dataAdminBlogData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataAdminBlogData.Size = new System.Drawing.Size(644, 288);
+            this.dataAdminBlogData.TabIndex = 5;
             // 
-            // genreDataGridViewTextBoxColumn
+            // blogBindingSource
             // 
-            this.genreDataGridViewTextBoxColumn.DataPropertyName = "genre";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.blogBindingSource.DataSource = typeof(Niche_Blog.server.Blog);
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Purple;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Teal;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.genreDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.titleDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.MinimumWidth = 200;
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.titleDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // genreDataGridViewTextBoxColumn
+            // 
+            this.genreDataGridViewTextBoxColumn.DataPropertyName = "genre";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.genreDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
-            this.genreDataGridViewTextBoxColumn.MinimumWidth = 150;
+            this.genreDataGridViewTextBoxColumn.MinimumWidth = 200;
             this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
-            this.genreDataGridViewTextBoxColumn.Width = 150;
+            this.genreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.genreDataGridViewTextBoxColumn.Width = 200;
             // 
             // authorDataGridViewTextBoxColumn
             // 
             this.authorDataGridViewTextBoxColumn.DataPropertyName = "author";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.authorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.authorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
             this.authorDataGridViewTextBoxColumn.MinimumWidth = 200;
             this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
+            this.authorDataGridViewTextBoxColumn.ReadOnly = true;
             this.authorDataGridViewTextBoxColumn.Width = 200;
             // 
-            // edit
+            // dataGridViewCheckBoxColumn1
             // 
-            this.edit.DataPropertyName = "edit";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle9.NullValue = false;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit.DefaultCellStyle = dataGridViewCellStyle9;
-            this.edit.HeaderText = "Edit";
-            this.edit.Name = "edit";
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "edit";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Edit";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Width = 50;
             // 
             // ResetAdmin
             // 
@@ -644,13 +642,13 @@ namespace Niche_Blog
             this.tabUserData.ResumeLayout(false);
             this.tabuser_data.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataAdminUserData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.tabblog_record.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataAdminBlogData)).EndInit();
             this.tabreset_code.ResumeLayout(false);
             this.tabreset_code.PerformLayout();
             this.tabadd_blog.ResumeLayout(false);
             this.tabadd_blog.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataAdminBlogData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -740,7 +738,9 @@ namespace Niche_Blog
             Admin A = new Admin();
             A.Show();
         }
+
         List<server.Blog> list;
+
         private void ResetAdmin_Load(object sender, EventArgs e)
         {
             dataAdminUserData.AutoGenerateColumns = false;
@@ -832,7 +832,7 @@ namespace Niche_Blog
             dataAdminBlogData.AutoGenerateColumns = false;
             //Blog Record Gird Display
             server.Service1 ser = new server.Service1();
-            List<server.Blog> list = ser.getBlog().ToList<server.Blog>();
+            list = ser.getBlog().ToList<server.Blog>();
             BindingSource a = new BindingSource();
             a.DataSource = list;
             dataAdminBlogData.DataSource = a;

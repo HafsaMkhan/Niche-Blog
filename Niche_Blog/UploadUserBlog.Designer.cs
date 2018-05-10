@@ -191,11 +191,11 @@
             this.authorDataGridViewTextBoxColumn,
             this.Check_Edit});
             this.dataReadBlog.DataSource = this.blogBindingSource;
-            this.dataReadBlog.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataReadBlog.GridColor = System.Drawing.Color.SeaShell;
             this.dataReadBlog.Location = new System.Drawing.Point(64, 170);
             this.dataReadBlog.MultiSelect = false;
             this.dataReadBlog.Name = "dataReadBlog";
+            this.dataReadBlog.ReadOnly = true;
             this.dataReadBlog.RowHeadersVisible = false;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -266,6 +266,7 @@
             this.Check_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Check_Edit.HeaderText = "Edit";
             this.Check_Edit.Name = "Check_Edit";
+            this.Check_Edit.ReadOnly = true;
             // 
             // blogBindingSource
             // 
